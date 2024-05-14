@@ -1,0 +1,5 @@
+Alex has measured out the dimensions of a cuboid to use for a science experiment. Alex has made a program to calcuate the volume of the cuboid and print it to the screen.
+
+The height and depth of the cuboid are 25cm and its width is 50cm. The volume of a cuboid is calculated using the equation below:
+
+Volume = height x width x depth
