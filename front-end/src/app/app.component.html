@@ -50,13 +50,14 @@
         <!--Have link so teachers can share with students; make unique webpage to include-->
         <h2>Generated Debugging Exercise</h2>
 
-        <app-code-viewer [codeToDisplay]="sampleProgram" [isReadOnly]="true" style="margin-bottom: 2.5%;">
+        <app-code-viewer [codeToDisplay]="incorrectProgram" [isReadOnly]="true">
         </app-code-viewer>
 
-        <h3>Explanation of errors:</h3>
-        <ol>
-            <li>Added semi-colon to end of line 1</li>
-            <li>Added indent to line 3</li>
-        </ol>
+        <h3 style="margin-top: 1%;">Explanation of errors:</h3>
+        <p>{{errorExplanations}}</p>
+
+        <button mat-icon-button color="primary" [cdkCopyToClipboard]="incorrectProgram">
+            <mat-icon>content_copy</mat-icon>
+          </button>
     </div>
 </div>
