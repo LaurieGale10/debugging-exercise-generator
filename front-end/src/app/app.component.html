@@ -1,6 +1,7 @@
 <div class="page">
     <h1>Debugging Exercise Generator</h1>
     
+    <!--Could be put in own component or dropdown-->
     <div class="program-details-pane">
         <h2>Program Details</h2>
         <!--Form here-->
@@ -43,5 +44,19 @@
                 <button mat-flat-button type="submit" color="primary" [disabled]="!programDetailsForm.valid">Generate Exercise</button>
             </form>
         </div>
+    </div>
+
+    <div *ngIf="exerciseGenerated" class="generated-program-pane">
+        <!--Have link so teachers can share with students; make unique webpage to include-->
+        <h2>Generated Debugging Exercise</h2>
+
+        <app-code-viewer [codeToDisplay]="sampleProgram" [isReadOnly]="true" style="margin-bottom: 2.5%;">
+        </app-code-viewer>
+
+        <h3>Explanation of errors:</h3>
+        <ol>
+            <li>Added semi-colon to end of line 1</li>
+            <li>Added indent to line 3</li>
+        </ol>
     </div>
 </div>
