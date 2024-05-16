@@ -54,10 +54,23 @@
         </app-code-viewer>
 
         <h3 style="margin-top: 1%;">Explanation of errors:</h3>
-        <p>{{errorExplanations}}</p>
+        <ol>
+            @for (explanation of errorExplanations; track $index) {
+                <li>{{explanation}}</li>
+            }
+        </ol>
 
-        <button mat-icon-button color="primary" [cdkCopyToClipboard]="incorrectProgram">
-            <mat-icon>content_copy</mat-icon>
-          </button>
+        <div class="copy-pane">
+            <button mat-icon-button color="primary" [cdkCopyToClipboard]="incorrectProgram">
+                <mat-icon>content_copy</mat-icon>
+              </button>
+              <p *ngIf="false">Copied to clipboard!</p>
+        </div>
+    </div>
+
+    <div *ngIf="exerciseGenerated" class="generated-program-pane">
+        <h2>Full Response From Model</h2>
+
+        <p>{{fullResponse}}</p>
     </div>
 </div>
