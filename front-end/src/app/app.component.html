@@ -41,7 +41,9 @@
                     </mat-select>
                 </mat-form-field>
 
-                <button mat-flat-button type="submit" color="primary" [disabled]="!programDetailsForm.valid || loading">Generate Exercise</button>
+                <button mat-flat-button *ngIf="!exerciseGenerated" type="submit" color="primary" [disabled]="!programDetailsForm.valid || loading">{{loading ? "Generating Exercise" : exerciseGenerated ? "Regenerate Exercise(X remaining)" : "Generate Exercise"}}</button>
+                <!--<button mat-flat-button *ngIf="exerciseGenerated" type="submit" color="primary" [disabled]="!programDetailsForm.valid || loading">Regenerate Exercise ({{remainingRegenerations}} remaining)</button>-->
+
             </form>
         </div>
     </div>

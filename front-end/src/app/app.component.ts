@@ -76,7 +76,8 @@ export class AppComponent {
   incorrectProgram: string | null = null;
   errorExplanations: Array<string> = [];
   fullResponse: string | null = null;
-  loading: boolean = false; //Variable that tracks whether any elment is loading
+  loading: boolean = false;
+  remainingRegenerations: number = 3;
 
   parser: DOMParser = new DOMParser();
 
@@ -99,6 +100,8 @@ export class AppComponent {
    * Calls the OpenAI API using the fine-tuned GPT model for the debugging exercises.
    */
   async generateExercise() {
+    this.remainingRegenerations--;
+
     let userPrompt = `
     <description>
     `+this.programDetailsForm.value.programDescription+`
