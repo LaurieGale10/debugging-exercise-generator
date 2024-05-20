@@ -41,9 +41,13 @@
                     </mat-select>
                 </mat-form-field>
 
-                <button mat-flat-button type="submit" color="primary" [disabled]="!programDetailsForm.valid">Generate Exercise</button>
+                <button mat-flat-button type="submit" color="primary" [disabled]="!programDetailsForm.valid || loading">Generate Exercise</button>
             </form>
         </div>
+    </div>
+
+    <div *ngIf="loading" class="generated-program-pane">
+        <h1>Loading...</h1>
     </div>
 
     <div *ngIf="exerciseGenerated" class="generated-program-pane">

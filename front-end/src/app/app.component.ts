@@ -76,6 +76,7 @@ export class AppComponent {
   incorrectProgram: string | null = null;
   errorExplanations: Array<string> = [];
   fullResponse: string | null = null;
+  loading: boolean = false; //Variable that tracks whether any elment is loading
 
   parser: DOMParser = new DOMParser();
 
@@ -111,6 +112,7 @@ export class AppComponent {
     <runtime>`+this.programDetailsForm.value.numberRuntimeErrors+`</runtime>
     <logical>`+this.programDetailsForm.value.numberLogicalErrors+`</logical>`;
 
+    this.loading = true;
     const completion = await this.openai.chat.completions.create({
       messages: [{ 
           role: "system", content: this.systemPrompt
@@ -121,7 +123,7 @@ export class AppComponent {
       ],
       model: "gpt-3.5-turbo",
     });
-
+    this.loading = false;
     this.fullResponse = completion.choices[0].message.content;
 
     //Parses response as XML document to allow for easy query.
