@@ -1,0 +1,3 @@
+Description adapted from https://cgi.csc.liv.ac.uk/~frans/CPD/PythonCPD/PythonExampleProblems/Sequence/SwimmingPool/swimmingPool2013-3-27.pdf, solution adapted from https://cgi.csc.liv.ac.uk/~frans/CPD/PythonCPD/PythonExampleProblems/Sequence/SwimmingPool/swimmingPool.py
+
+Develop a Python program which; given the width, length and depth in whole metres (thus integer input), of a swimming pool determines and outputs: (a) the volume in litres, and (b) time in hours to fill the swimming pool, calculated by the volume / (rate * 3600) Assume that the rate of flow into the pool is 2.5 litres per second. Note: 1 litre = 1000 cubic centimetres, therefore 10 litres = 0.01 cubic metre, hence 1 metre = 1000 litres.

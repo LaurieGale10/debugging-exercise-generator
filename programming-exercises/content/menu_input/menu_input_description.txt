@@ -1,0 +1,3 @@
+Description taken from (https://cgi.csc.liv.ac.uk/~frans/CPD/PythonCPD/PythonExampleProblems/Repetition/MenuInput/menuInput2013-4-5.pdf). Solution adapted from (https://cgi.csc.liv.ac.uk/~frans/CPD/PythonCPD/PythonExampleProblems/Repetition/MenuInput/menuInput.py)
+
+Design and implement some Python code that allows the user to select from five different menu options on a continuous loop, including an option to quit the program. Choose your own menu options. Include an error handling mechanism for the situation where an unrecognised menu option is input by the user. The best way of implementing this in Python is using a sequence of elif statements embedded into a loop.
