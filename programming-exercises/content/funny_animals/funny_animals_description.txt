@@ -1,0 +1,5 @@
+Description adapted from https://www.csnewbs.com/ks3-python-2-variables.
+
+Create a variable called colour and give it a value (e.g. "blue")
+Create a variable called animal and give it a value (e.g. "horse")
+Print a funny sentence that uses both variables, such as "Have you ever seen a blue horse?"

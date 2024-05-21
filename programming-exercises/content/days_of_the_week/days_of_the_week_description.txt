@@ -1,0 +1,8 @@
+Description taken from https://www.csnewbs.com/ks3-python-1-thebasics.
+
+Create a program that prints the days of the week, with each day on a new line. When you run it, it should look like this:
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday

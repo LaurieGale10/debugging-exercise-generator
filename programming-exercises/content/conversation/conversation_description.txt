@@ -1,0 +1,9 @@
+Description adapted from https://www.csnewbs.com/ks3-python-1-thebasics.
+
+Create a program that prints a 6-line conversation between two people.When you run it, it should look like this:
+Hello Steve!
+Hello there Wendy!
+How are you today Steve?
+Not bad thanks, just bought some tea!
+Oh I love a good cup of tea.
+See you later.

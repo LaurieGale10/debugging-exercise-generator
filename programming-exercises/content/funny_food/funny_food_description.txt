@@ -1,0 +1,5 @@
+Example adapted from https://www.csnewbs.com/ks3-python-3-inputs.
+
+Create a program that asks two questions, one for their favourite colour and one for their favourite food. Print a funny sentence in the format "Yum! I think I'll have <colour> <food> for dinner tonight!"
+
+For example, if someone's favourite colour was purple and their favourite food was pasta, the program would output "Yum! I think I'll have purple pasta tonight!"

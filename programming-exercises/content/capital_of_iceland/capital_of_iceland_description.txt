@@ -1,0 +1,3 @@
+Description adapted from https://www.csnewbs.com/ks3-python-3-inputs.
+
+Create a program that checks if the user knows what the capital of Iceland is. The program should input the user's answer, display their answer and whether it was correct or incorrect. If it's incorrect, the correct answer (Reykjavík) should be displayed.

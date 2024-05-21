@@ -1,0 +1,5 @@
+Description adapted from https://www.csnewbs.com/ks3-python-4-calculations.
+
+Write a program that inputs two numbers from the user. Output the result of multiplying these numbers together.
+
+For example, if a user inputs 2 and 5, the program would output "2 multiplied by 5 is 10"
