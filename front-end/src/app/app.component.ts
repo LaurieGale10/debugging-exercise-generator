@@ -3,13 +3,13 @@ import { CommonModule, NgFor } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, FormBuilder, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import {ClipboardModule} from '@angular/cdk/clipboard';
+import { GeneratedExerciseViewComponent } from './generated-exercise-view/generated-exercise-view.component';
+import { GeneratedExercise } from './types/types';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
 
 import { CodeViewerComponent } from "./code-viewer/code-viewer.component";
 import { OpenAI } from 'openai';
@@ -20,7 +20,7 @@ import { environment } from './../environments/environment';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.sass',
-    imports: [RouterOutlet, ReactiveFormsModule, CommonModule, NgFor, ClipboardModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, MatIconModule, CodeViewerComponent]
+    imports: [RouterOutlet, ReactiveFormsModule, CommonModule, NgFor, GeneratedExerciseViewComponent, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, CodeViewerComponent]
 })
 export class AppComponent {
   title = 'front-end';
@@ -47,37 +47,36 @@ export class AppComponent {
   sampleProgramDescription: string = 'This program inputs the user\'s first name, surname, and the year they were born. It then prints a sentence to the screen with their full name and how old they will be at the end of the year.\n\nIf a user\'s first name is Jo, their last name is Bloggs, and they were born in 2008, the program should print: "Your name is Jo Bloggs and at the end of this year you will be 15".';
 
   exerciseGenerated: boolean = false;
+  fullResponse: string | null = null;
+  errorExplanations: Array<string> = [];
   responseText: string = `
   <root>
-  <thinking>
-  To add syntax errors to the program, I can introduce mistakes like misspelling a variable, forgetting quotation marks, or using incorrect operators. For this program, I can consider altering the way the input function is used or changing variable names.
-  </thinking>
+    <thinking>
+    To add a syntax error, I could introduce a missing colon at the end of one of the lines.
+    </thinking>
+    
+    <incorrect-program>
+    year_born = input("What year were you born in? ")
+age = 2023-int(year_born)
 
-  <incorrect-program>
-  year_born = inpt("What year were you born in? ")
-  age = 2023-int(year_born)
-      
-  first_name = input("What is your first name? )
-  last_name = input("What is your last name?")
-  print("Your name is" first_name, last_name, "and at the end of this year you will be" + age)
-  </incorrect-program>
-
-  <error-location>
-  - Line 1
-  - Line 5
-  </error-location>
-
-  <explanation>
-  1. In line 1, the input function is misspelled as 'inpt' instead of 'input'. \n
-  2. In line 5, the quotation mark is missing at the end of the string within the input function.
-  </explanation>
-  </root>`;
+first_name = input("What is your first name? ")
+last_name = input("What is your last name? ")
+print("Your name is",first_name,last_name,"and at the end of this year you will be", age)
+    </incorrect-program>
+    
+    <error-location>
+    3
+    </error-location>
+    
+    <explanation>
+    I have introduced a syntax error by omitting the colon at the end of line 3 after the input() function.
+    </explanation>
+</root>`;
 
   incorrectProgram: string | null = null;
-  errorExplanations: Array<string> = [];
-  fullResponse: string | null = null;
   loading: boolean = false;
   remainingRegenerations: number = 3;
+  generatedExercises: Array<GeneratedExercise> = [];
 
   parser: DOMParser = new DOMParser();
 
@@ -127,17 +126,25 @@ export class AppComponent {
       model: "gpt-3.5-turbo",
     });
     this.loading = false;
-    this.fullResponse = completion.choices[0].message.content;
+    let fullResponse: string = completion.choices[0].message.content;
+    console.log(fullResponse)
 
     //Parses response as XML document to allow for easy query.
     //TODO: Add initial error handling in case response is not in valid HTML (try regenerating response X number of times)
-    const xmlDoc = this.parser.parseFromString(this.fullResponse, "text/xml"); //XML isn't valid - need to get it all in a root tag
-    let incorrectProgram: string = xmlDoc.querySelector("incorrect-program").textContent; //TODO: Remove heading and tailing blank lines
-    this.incorrectProgram = incorrectProgram.replace(/^\n+|\n+$/g, '');
+    const xmlDoc: XMLDocument = this.parser.parseFromString(fullResponse, "text/xml"); //XML isn't valid - need to get it all in a root tag
+    let incorrectProgram: string = xmlDoc.querySelector("incorrect-program").textContent;
+    incorrectProgram.replace(/^\n+|\n+$/g, ''); //TODO: Remove heading and tailing blank lines
     let explanation: string = xmlDoc.querySelector("explanation").textContent;
-    this.errorExplanations = explanation.split("\n\n");
+    let errorExplanations: Array<string> = explanation.split("\n\n");
 
-    this.exerciseGenerated = true;
+    this.exerciseGenerated = true; //TODO: This needs some work - getting to the danger of having too many boolean variables to fulfill
+
+    this.generatedExercises.push({
+      incorrectProgram,
+      errorExplanations,
+      fullResponse
+    })
+    console.log(this.generateExercise);
   }
 
   //Originally returns some sort of type error as AbstractControl isn't passed into the function so had to set strict to false in tsconfig (haven't investigated consequences of this)

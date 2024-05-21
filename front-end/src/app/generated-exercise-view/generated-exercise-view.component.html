@@ -1,1 +1,36 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Debugging Exercise Generation
+        </mat-panel-title>
+    </mat-expansion-panel-header>
 
+    <div class="generated-program-pane">
+        <!--Have link so teachers can share with students; make unique webpage to include-->
+        <h2>Generated Debugging Exercise</h2>
+
+        <app-code-viewer [codeToDisplay]="incorrectProgram" [isReadOnly]="true">
+        </app-code-viewer>
+
+        <h3 style="margin-top: 1%;">Explanation of errors:</h3>
+        <ol>
+            @for (explanation of errorExplanations; track $index) {
+                <li>{{explanation}}</li>
+            }
+        </ol>
+
+        <div class="copy-pane">
+            <button mat-icon-button color="primary" [cdkCopyToClipboard]="incorrectProgram" (click)="openSnackBar()">
+                <mat-icon>content_copy</mat-icon>
+              </button>
+              <p *ngIf="false">Copied to clipboard!</p>
+        </div>
+    </div>
+
+    <div class="generated-program-pane">
+        <h2>Full Response From Model</h2>
+
+        <p>{{fullResponse}}</p>
+    </div>
+
+</mat-expansion-panel>
