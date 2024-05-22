@@ -8,5 +8,6 @@
 export type GeneratedExercise = {
     incorrectProgram: string,
     errorExplanations: Array<string>,
-    fullResponse: string
+    fullResponse: string,
+    regenerationNumber: number
 }

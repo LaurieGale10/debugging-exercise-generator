@@ -53,7 +53,8 @@ export class AppComponent {
 
   incorrectProgram: string | null = null;
   loading: boolean = false;
-  remainingRegenerations: number = 3;
+  regenerationLimits: number = 3;
+  remainingRegenerations: number = this.regenerationLimits;
   generatedExercises: Array<GeneratedExercise> = [];
 
   parser: DOMParser = new DOMParser();
@@ -163,13 +164,16 @@ export class AppComponent {
     incorrectProgram.replace(/^\n+|\n+$/g, ''); //TODO: Remove heading and tailing blank lines
     let explanation: string = xmlDoc.querySelector("explanation").textContent;
     let errorExplanations: Array<string> = explanation.split("\n\n");
+    let regenerationNumber: number = this.regenerationLimits - this.remainingRegenerations;
 
     this.exerciseGenerated = true; //TODO: This needs some work - getting to the danger of having too many boolean variables to fulfill
+
 
     this.generatedExercises.push({
       incorrectProgram,
       errorExplanations,
-      fullResponse
+      fullResponse,
+      regenerationNumber
     })
     console.log(this.generateExercise);
   }
@@ -204,6 +208,5 @@ export class AppComponent {
       return null;
     }
   }
-
 
 }

@@ -25,6 +25,8 @@ export class GeneratedExerciseViewComponent {
 
   @Input() fullResponse: string | null = null;
 
+  @Input() regenerationNumber: number;
+
   snackBarDisplayDuration: number = 2; //Time to display snackbar component for in seconds
 
   /**

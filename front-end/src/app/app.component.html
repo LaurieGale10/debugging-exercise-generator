@@ -11,6 +11,7 @@
                 <mat-form-field>
                     <mat-label>Program Description</mat-label>
                     <textarea matInput id="program-description" type="text" formControlName="programDescription" required></textarea>
+                    <mat-error>Make sure the program description is not blank</mat-error>
                 </mat-form-field>
 
                 <h4>Correct Program</h4>
@@ -52,7 +53,6 @@
     </div>
 
     <div *ngIf="exerciseGenerated">
-        <app-generated-exercise-view *ngFor="let exercise of generatedExercises" [incorrectProgram]="exercise.incorrectProgram" [errorExplanations]="exercise.errorExplanations" [fullResponse]="exercise.fullResponse"></app-generated-exercise-view>
+        <app-generated-exercise-view *ngFor="let exercise of generatedExercises" [incorrectProgram]="exercise.incorrectProgram" [errorExplanations]="exercise.errorExplanations" [fullResponse]="exercise.fullResponse" [regenerationNumber]="exercise.regenerationNumber"></app-generated-exercise-view>
     </div>
-
 </div>
