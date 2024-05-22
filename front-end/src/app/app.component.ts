@@ -25,6 +25,8 @@ import { environment } from './../environments/environment';
 export class AppComponent {
   title = 'front-end';
   
+  testingUI: boolean = true;
+  
   openai: OpenAI = new OpenAI({ apiKey: environment.openAiApiKey, dangerouslyAllowBrowser: true});
   systemPrompt: string = `You are a resource developer creating debugging exercises for secondary school students learning to program in Python. Your task is to edit a program so that it contains a specified number of errors.
 
@@ -43,35 +45,11 @@ export class AppComponent {
 
 
   sampleProgram: string = 'year_born = input("What year were you born in? ")\nage = 2023-int(year_born)\n\nfirst_name = input("What is your first name? ")\nlast_name = input("What is your last name? ")\nprint("Your name is",first_name,last_name,"and at the end of this year you will be", age)';
-
   sampleProgramDescription: string = 'This program inputs the user\'s first name, surname, and the year they were born. It then prints a sentence to the screen with their full name and how old they will be at the end of the year.\n\nIf a user\'s first name is Jo, their last name is Bloggs, and they were born in 2008, the program should print: "Your name is Jo Bloggs and at the end of this year you will be 15".';
 
   exerciseGenerated: boolean = false;
   fullResponse: string | null = null;
   errorExplanations: Array<string> = [];
-  responseText: string = `
-  <root>
-    <thinking>
-    To add a syntax error, I could introduce a missing colon at the end of one of the lines.
-    </thinking>
-    
-    <incorrect-program>
-    year_born = input("What year were you born in? ")
-age = 2023-int(year_born)
-
-first_name = input("What is your first name? ")
-last_name = input("What is your last name? ")
-print("Your name is",first_name,last_name,"and at the end of this year you will be", age)
-    </incorrect-program>
-    
-    <error-location>
-    3
-    </error-location>
-    
-    <explanation>
-    I have introduced a syntax error by omitting the colon at the end of line 3 after the input() function.
-    </explanation>
-</root>`;
 
   incorrectProgram: string | null = null;
   loading: boolean = false;
@@ -94,6 +72,56 @@ print("Your name is",first_name,last_name,"and at the end of this year you will 
   }
   )
 
+
+  /**
+   * Simulates the generation of a debugging exercise through interaction with Chat Completions API by returning a dummy XML string after x seconds
+   * @param timeout Number of seconds to delay returning variable for
+   */
+  simulateGenerateExercise(timeout: number = 2): string {
+    let dummyResponseText: string = `
+    <root>
+      <thinking>
+      To add a syntax error, I could introduce a missing colon at the end of one of the lines.
+      </thinking>
+      
+      <incorrect-program>
+      year_born = input("What year were you born in? ")
+  age = 2023-int(year_born)
+  
+  first_name = input("What is your first name? ")
+  last_name = input("What is your last name? ")
+  print("Your name is",first_name,last_name,"and at the end of this year you will be", age)
+      </incorrect-program>
+      
+      <error-location>
+      3
+      </error-location>
+      
+      <explanation>
+      I have introduced a syntax error by omitting the colon at the end of line 3 after the input() function.
+      </explanation>
+  </root>`;
+    setTimeout(() => {
+    }, timeout * 1000);
+    return dummyResponseText;
+
+  }
+
+  async fetchReponse(userPrompt: string): Promise<string> {
+    const completion = await this.openai.chat.completions.create({
+      messages: [{ 
+          role: "system", content: this.systemPrompt
+        },
+        {
+          role: "user", content: userPrompt
+        }
+      ],
+      model: "gpt-3.5-turbo",
+    });
+    let fullResponse: string = completion.choices[0].message.content;
+    return fullResponse;
+  }
+
   /**
    * Generates the debugging exercises, given the program description, correct version of the program, and the number of syntax, runtime, and logical errors provided by the user.
    * Calls the OpenAI API using the fine-tuned GPT model for the debugging exercises.
@@ -115,18 +143,17 @@ print("Your name is",first_name,last_name,"and at the end of this year you will 
     <logical>`+this.programDetailsForm.value.numberLogicalErrors+`</logical>`;
 
     this.loading = true;
-    const completion = await this.openai.chat.completions.create({
-      messages: [{ 
-          role: "system", content: this.systemPrompt
-        },
-        {
-          role: "user", content: userPrompt
-        }
-      ],
-      model: "gpt-3.5-turbo",
-    });
+    let fullResponse: string;
+
+    if (!this.testingUI) {
+      fullResponse = await this.fetchReponse(userPrompt);
+    }
+    else {
+      fullResponse = this.simulateGenerateExercise();
+    }
+
     this.loading = false;
-    let fullResponse: string = completion.choices[0].message.content;
+
     console.log(fullResponse)
 
     //Parses response as XML document to allow for easy query.
@@ -145,6 +172,15 @@ print("Your name is",first_name,last_name,"and at the end of this year you will 
       fullResponse
     })
     console.log(this.generateExercise);
+  }
+
+  /**
+   * Function to determine what string to display on the submit button of the LLM prompt form
+   * Expressed as a form rather than purely in the Angular HTML interpolation to improve readability
+   * @returns String to display on the submit button
+   */
+  submitButtonDisplay(): string {
+    return this.remainingRegenerations == 0 ? "You've used all your regenerations" : this.loading ? "Generating Exercise" : this.exerciseGenerated ? "Regenerate Exercise ("+this.remainingRegenerations+" remaining)" : "Generate Exercise";
   }
 
   //Originally returns some sort of type error as AbstractControl isn't passed into the function so had to set strict to false in tsconfig (haven't investigated consequences of this)
