@@ -1,4 +1,4 @@
-import { CommonModule, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { CodeViewerComponent } from '../code-viewer/code-viewer.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
@@ -33,7 +33,10 @@ export class GeneratedExerciseViewComponent {
    * Method to open "Copied to clipboard" snackbar message for snack
    */
   openSnackBar() {
-    this._snackBar.open("Copied to clipboard");
+    this._snackBar.open("Copied to clipboard","", {
+      duration: 1000,
+      panelClass: ["custom-snack-bar"]
+    });
   }
 
 }

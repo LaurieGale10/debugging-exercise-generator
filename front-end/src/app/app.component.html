@@ -11,7 +11,7 @@
                 <mat-form-field>
                     <mat-label>Program Description</mat-label>
                     <textarea matInput id="program-description" type="text" formControlName="programDescription" required></textarea>
-                    <mat-error>Make sure the program description is not blank</mat-error>
+                    <mat-error>Make sure the program description isn't blank</mat-error>
                 </mat-form-field>
 
                 <h4>Correct Program</h4>
@@ -19,6 +19,7 @@
                     <!--Ideally have CM component here-->
                     <mat-label>Correct Program</mat-label>
                     <textarea matInput id="correct-program" type="text" formControlName="correctProgram" required></textarea>
+                    <mat-error>Make sure the correct isn't blank</mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
@@ -26,6 +27,7 @@
                     <mat-select matNativeControl formControlName="numberSyntaxErrors" required>
                         <mat-option *ngFor="let i of [0,1,2,3]" value="{{i}}">{{i}}</mat-option>
                     </mat-select>
+                    <mat-error>Make sure that you select a valid value</mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
@@ -33,6 +35,7 @@
                     <mat-select matNativeControl formControlName="numberRuntimeErrors" required>
                         <mat-option *ngFor="let i of [0,1,2,3]" value="{{i}}">{{i}}</mat-option>
                     </mat-select>
+                    <mat-error>Make sure that you select a valid value</mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
@@ -40,6 +43,7 @@
                     <mat-select matNativeControl formControlName="numberLogicalErrors" required>
                         <mat-option *ngFor="let i of [0,1,2,3]" value="{{i}}">{{i}}</mat-option>
                     </mat-select>
+                    <mat-error>Make sure that you select a valid value</mat-error>
                 </mat-form-field>
 
                 <button mat-flat-button type="submit" color="primary" [disabled]="!programDetailsForm.valid || loading || remainingRegenerations == 0">{{submitButtonDisplay()}}</button>
