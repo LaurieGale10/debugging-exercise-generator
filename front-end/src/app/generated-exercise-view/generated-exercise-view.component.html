@@ -9,8 +9,7 @@
         <!--Have link so teachers can share with students; make unique webpage to include-->
         <h2>Generated Debugging Exercise</h2>
 
-        <app-code-viewer [codeToDisplay]="incorrectProgram" [isReadOnly]="true">
-        </app-code-viewer>
+        <app-code-viewer [codeToDisplay]="incorrectProgram" [isReadOnly]="true"></app-code-viewer>
 
         <h3 style="margin-top: 1%;">Explanation of errors:</h3>
         <ol>
@@ -30,7 +29,7 @@
     <div class="generated-program-pane">
         <h2>Full Response From Model</h2>
 
-        <p>{{fullResponse}}</p>
+        <pre>{{fullResponse}}</pre>
     </div>
 
 </mat-expansion-panel>

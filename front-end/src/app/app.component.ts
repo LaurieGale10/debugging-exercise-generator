@@ -14,6 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { CodeViewerComponent } from "./code-viewer/code-viewer.component";
 import { OpenAI } from 'openai';
 import { environment } from './../environments/environment';
+import dedent from 'dedent';
 
 @Component({
     selector: 'app-root',
@@ -25,10 +26,11 @@ import { environment } from './../environments/environment';
 export class AppComponent {
   title = 'front-end';
   
-  testingUI: boolean = true;
+  testingUI: boolean = false;
   
   openai: OpenAI = new OpenAI({ apiKey: environment.openAiApiKey, dangerouslyAllowBrowser: true});
-  systemPrompt: string = `You are a resource developer creating debugging exercises for secondary school students learning to program in Python. Your task is to edit a program so that it contains a specified number of errors.
+  systemPrompt: string = dedent(`
+  You are a resource developer creating debugging exercises for secondary school students learning to program in Python. Your task is to edit a program so that it contains a specified number of errors.
 
   You will be provided with the following information:
   - A short, correct Python program in <correct-program> XML tags.
@@ -41,7 +43,7 @@ export class AppComponent {
   1) Think about where you could add the specified number of errors. Enclose this thinking with <thinking> XML tags.
   2) Inject the specified number of syntax, runtime, and logical errors into the program. Enclose the incorrect program in <incorrect-program> XML tags.
   3) Within the <error-location> tags, write the line number of each error that has been injected. Ensure the line numbers correspond to the lines containing errors within the program in the <incorrect-program> tags
-  4) Explain each error you have injected within <explanation> XML tags.`;
+  4) Explain each error you have injected within <explanation> XML tags.`); //This doesn't change - needs to be formatted properly
 
 
   sampleProgram: string = 'year_born = input("What year were you born in? ")\nage = 2023-int(year_born)\n\nfirst_name = input("What is your first name? ")\nlast_name = input("What is your last name? ")\nprint("Your name is",first_name,last_name,"and at the end of this year you will be", age)';
@@ -51,6 +53,7 @@ export class AppComponent {
   fullResponse: string | null = null;
   errorExplanations: Array<string> = [];
 
+  programDetailsForm: FormGroup;
   incorrectProgram: string | null = null;
   loading: boolean = false;
   regenerationLimits: number = 3;
@@ -59,27 +62,25 @@ export class AppComponent {
 
   parser: DOMParser = new DOMParser();
 
-  constructor(private formBuilder: FormBuilder) {}
-
-  //Using FormBuilder due to less amount of boiler plate code (also discussed here: https://stackoverflow.com/questions/56015702/angular-form-builder-vs-form-control-and-form-group)
-  programDetailsForm = this.formBuilder.group({ //Creates a group of FormControls
-    programDescription: [this.sampleProgram, Validators.required],
-    correctProgram: [this.sampleProgramDescription, Validators.required],
-    numberSyntaxErrors: ['', Validators.required],
-    numberRuntimeErrors: ['', Validators.required],
-    numberLogicalErrors: ['', Validators.required]
-  }, {
-    validators: [AppComponent.numberErrorsValidator(), AppComponent.syntacticallyValidCodeValidator()]
+  constructor(private formBuilder: FormBuilder) {
+      //Using FormBuilder due to less amount of boiler plate code (also discussed here: https://stackoverflow.com/questions/56015702/angular-form-builder-vs-form-control-and-form-group)
+    this.programDetailsForm = this.formBuilder.group({ //Creates a group of FormControls
+      programDescription: [this.sampleProgramDescription, Validators.required],
+      correctProgram: [this.sampleProgram, Validators.required],
+      numberSyntaxErrors: ['', Validators.required],
+      numberRuntimeErrors: ['', Validators.required],
+      numberLogicalErrors: ['', Validators.required]
+    }, {
+      validators: [AppComponent.numberErrorsValidator(), AppComponent.syntacticallyValidCodeValidator()]
+    })
   }
-  )
-
 
   /**
    * Simulates the generation of a debugging exercise through interaction with Chat Completions API by returning a dummy XML string after x seconds
    * @param timeout Number of seconds to delay returning variable for
    */
   simulateGenerateExercise(timeout: number = 2): string {
-    let dummyResponseText: string = `
+    let dummyResponseText: string = dedent(`
     <root>
       <thinking>
       To add a syntax error, I could introduce a missing colon at the end of one of the lines.
@@ -87,11 +88,11 @@ export class AppComponent {
       
       <incorrect-program>
       year_born = input("What year were you born in? ")
-  age = 2023-int(year_born)
+      age = 2023-int(year_born)
   
-  first_name = input("What is your first name? ")
-  last_name = input("What is your last name? ")
-  print("Your name is",first_name,last_name,"and at the end of this year you will be", age)
+          first_name = input("What is your first name? ")
+      last_name = input("What is your last name? ")
+      print("Your name is",first_name,last_name,"and at the end of this year you will be", age)
       </incorrect-program>
       
       <error-location>
@@ -101,11 +102,10 @@ export class AppComponent {
       <explanation>
       I have introduced a syntax error by omitting the colon at the end of line 3 after the input() function.
       </explanation>
-  </root>`;
+    </root>`);
     setTimeout(() => {
     }, timeout * 1000);
     return dummyResponseText;
-
   }
 
   async fetchReponse(userPrompt: string): Promise<string> {
@@ -130,7 +130,7 @@ export class AppComponent {
   async generateExercise() {
     this.remainingRegenerations--;
 
-    let userPrompt = `
+    let userPrompt = dedent(`
     <description>
     `+this.programDetailsForm.value.programDescription+`
     </description>
@@ -141,7 +141,7 @@ export class AppComponent {
     
     <syntax>`+this.programDetailsForm.value.numberSyntaxErrors+`</syntax>
     <runtime>`+this.programDetailsForm.value.numberRuntimeErrors+`</runtime>
-    <logical>`+this.programDetailsForm.value.numberLogicalErrors+`</logical>`;
+    <logical>`+this.programDetailsForm.value.numberLogicalErrors+`</logical>`); //This also needs to be formatted properly
 
     this.loading = true;
     let fullResponse: string;
@@ -154,20 +154,18 @@ export class AppComponent {
     }
 
     this.loading = false;
-
     console.log(fullResponse)
 
-    //Parses response as XML document to allow for easy query.
+    //Parses response as XML document to allow for easy access of relevant information.
     //TODO: Add initial error handling in case response is not in valid HTML (try regenerating response X number of times)
     const xmlDoc: XMLDocument = this.parser.parseFromString(fullResponse, "text/xml"); //XML isn't valid - need to get it all in a root tag
-    let incorrectProgram: string = xmlDoc.querySelector("incorrect-program").textContent;
-    incorrectProgram.replace(/^\n+|\n+$/g, ''); //TODO: Remove heading and tailing blank lines
+    let incorrectProgram: string = dedent(xmlDoc.querySelector("incorrect-program").textContent); //This will also remove trailing whitespace from any possible indentation of first line - figure out a fix for this. However, it does currently maintain the rest of the indentation
+
     let explanation: string = xmlDoc.querySelector("explanation").textContent;
     let errorExplanations: Array<string> = explanation.split("\n\n");
     let regenerationNumber: number = this.regenerationLimits - this.remainingRegenerations;
 
     this.exerciseGenerated = true; //TODO: This needs some work - getting to the danger of having too many boolean variables to fulfill
-
 
     this.generatedExercises.push({
       incorrectProgram,
@@ -175,7 +173,6 @@ export class AppComponent {
       fullResponse,
       regenerationNumber
     })
-    console.log(this.generateExercise);
   }
 
   /**

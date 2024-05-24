@@ -18,8 +18,6 @@ export class CodeViewerComponent implements AfterViewInit, OnChanges {
 
   @Input() isReadOnly: boolean | undefined;
 
-  outputText: string = "";
-
   editorState: EditorState | undefined;
   editorView: EditorView | undefined;
   editorExtensions: Extension = [basicSetup, python()];
@@ -34,7 +32,7 @@ export class CodeViewerComponent implements AfterViewInit, OnChanges {
         doc: this.codeToDisplay,
         extensions: [basicSetup,
           python(),
-          this.readOnly.of(EditorState.readOnly.of(true))
+          this.readOnly.of(EditorState.readOnly.of(this.isReadOnly))
         ]
       });
     } catch (e) {

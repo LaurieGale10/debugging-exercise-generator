@@ -1,10 +1,17 @@
 <div class="page">
     <h1>Debugging Exercise Generator</h1>
+
+    <h4>Create debugging exercises using ChatGPT!</h4>
+    
+    <p>Simply add a description of the program is meant to do, add a version of the program that is correct and state what errors you want to add, and the LLM will do the rest!</p>
+
+    <p>Want some help getting started? Click the button below to view some example programs.</p>
+
+    <button mat-flat-button [hidden]="true" type="submit" color="primary">Show examples</button>
     
     <!--Could be put in own component or dropdown-->
     <div class="program-details-pane">
         <h2>Program Details</h2>
-        <!--Form here-->
         <div>
             <form [formGroup]="programDetailsForm" class="program-details-form" (ngSubmit)="generateExercise()">
                 <h4>Program Description</h4>
@@ -14,13 +21,13 @@
                     <mat-error>Make sure the program description isn't blank</mat-error>
                 </mat-form-field>
 
-                <h4>Correct Program</h4>
+                <h4>Correct Program *</h4>
                 <mat-form-field>
-                    <!--Ideally have CM component here-->
                     <mat-label>Correct Program</mat-label>
                     <textarea matInput id="correct-program" type="text" formControlName="correctProgram" required></textarea>
                     <mat-error>Make sure the correct isn't blank</mat-error>
                 </mat-form-field>
+                <!--<app-code-viewer matInput formControlName="correctProgram" [codeToDisplay]="sampleProgram" [isReadOnly]="false" style="margin-bottom: 1.5%;"></app-code-viewer>-->
 
                 <mat-form-field>
                     <mat-label>Number of syntax errors</mat-label>
