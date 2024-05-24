@@ -1,3 +1,3 @@
 Description taken from https://cgi.csc.liv.ac.uk/~frans/CPD/PythonCPD/PythonExampleProblems/Selection/Power4/power4_2013-4-9.pdf, example adapted from https://cgi.csc.liv.ac.uk/~frans/CPD/PythonCPD/PythonExampleProblems/Selection/Power4/power4.py
 
-Design and create a Python program that takes a single integer as input. If the input is less than 50 adds 10 and returns the result raised to the power of 4, otherwise simply returns the input raised to the power of 4.
+This program should take a single integer as input. If the input is less than 50, add 10 and return the result raised to the power of 4. Otherwise simply return the input raised to the power of 4.
