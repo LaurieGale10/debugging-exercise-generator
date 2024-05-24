@@ -10,23 +10,25 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
 
 import { CodeViewerComponent } from "./code-viewer/code-viewer.component";
 import { OpenAI } from 'openai';
 import { environment } from './../environments/environment';
 import dedent from 'dedent';
+import { GenericDialogBoxComponent } from './generic-dialog-box/generic-dialog-box.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.sass',
-    imports: [RouterOutlet, ReactiveFormsModule, CommonModule, NgFor, GeneratedExerciseViewComponent, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, CodeViewerComponent]
+    imports: [RouterOutlet, ReactiveFormsModule, CommonModule, NgFor, GeneratedExerciseViewComponent, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, CodeViewerComponent, GenericDialogBoxComponent]
 })
 export class AppComponent {
   title = 'front-end';
   
-  testingUI: boolean = false;
+  testingUI: boolean = true;
   
   openai: OpenAI = new OpenAI({ apiKey: environment.openAiApiKey, dangerouslyAllowBrowser: true});
   systemPrompt: string = dedent(`
@@ -56,13 +58,14 @@ export class AppComponent {
   programDetailsForm: FormGroup;
   incorrectProgram: string | null = null;
   loading: boolean = false;
-  regenerationLimits: number = 3;
-  remainingRegenerations: number = this.regenerationLimits;
+  regenerationLimit: number = 3;
+  remainingRegenerations: number = this.regenerationLimit;
+  exceptionalRemainingRegenerations: number = 3; //Number of regeneration attempts allowed in the event that the model outputs a response that is not in a valid XML format, or otherwise generates an error.
   generatedExercises: Array<GeneratedExercise> = [];
 
   parser: DOMParser = new DOMParser();
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, public dialog: MatDialog) {
       //Using FormBuilder due to less amount of boiler plate code (also discussed here: https://stackoverflow.com/questions/56015702/angular-form-builder-vs-form-control-and-form-group)
     this.programDetailsForm = this.formBuilder.group({ //Creates a group of FormControls
       programDescription: [this.sampleProgramDescription, Validators.required],
@@ -103,9 +106,75 @@ export class AppComponent {
       I have introduced a syntax error by omitting the colon at the end of line 3 after the input() function.
       </explanation>
     </root>`);
-    setTimeout(() => {
-    }, timeout * 1000);
-    return dummyResponseText;
+
+    let dummyResponseNoRoot: string = dedent(`
+      <thinking>
+      To add a syntax error, I could introduce a missing colon at the end of one of the lines.
+      </thinking>
+      
+      <incorrect-program>
+      year_born = input("What year were you born in? ")
+      age = 2023-int(year_born)
+  
+          first_name = input("What is your first name? ")
+      last_name = input("What is your last name? ")
+      print("Your name is",first_name,last_name,"and at the end of this year you will be", age)
+      </incorrect-program>
+      
+      <error-location>
+      3
+      </error-location>
+      
+      <explanation>
+      I have introduced a syntax error by omitting the colon at the end of line 3 after the input() function.
+      </explanation>`);
+
+    let dummyResponseUnindented: string = dedent(`
+    <root>
+    <thinking>
+    To add a syntax error, I could introduce a missing colon at the end of one of the lines.
+    </thinking>
+      
+    <incorrect-program>
+    year_born = input("What year were you born in? ")
+    age = 2023-int(year_born)
+  
+    first_name = input("What is your first name? ")
+    last_name = input("What is your last name? ")
+    print("Your name is",first_name,last_name,"and at the end of this year you will be", age)
+    </incorrect-program>
+    
+    <error-location>
+    3
+    </error-location>
+    
+    <explanation>
+    I have introduced a syntax error by omitting the colon at the end of line 3 after the input() function.
+    </explanation>
+    </root>`);
+
+    let dummyResponseWithoutExplanation: string = dedent(`
+    <root>
+    <thinking>
+    To add a syntax error, I could introduce a missing colon at the end of one of the lines.
+    </thinking>
+      
+    <incorrect-program>
+    year_born = input("What year were you born in? ")
+    age = 2023-int(year_born)
+  
+    first_name = input("What is your first name? ")
+    last_name = input("What is your last name? ")
+    print("Your name is",first_name,last_name,"and at the end of this year you will be", age)
+    </incorrect-program>
+    
+    <error-location>
+    3
+    </error-location>
+    
+    </root>`);
+
+    return dummyResponseNoRoot;
   }
 
   async fetchReponse(userPrompt: string): Promise<string> {
@@ -128,7 +197,6 @@ export class AppComponent {
    * Calls the OpenAI API using the fine-tuned GPT model for the debugging exercises.
    */
   async generateExercise() {
-    this.remainingRegenerations--;
 
     let userPrompt = dedent(`
     <description>
@@ -157,22 +225,46 @@ export class AppComponent {
     console.log(fullResponse)
 
     //Parses response as XML document to allow for easy access of relevant information.
-    //TODO: Add initial error handling in case response is not in valid HTML (try regenerating response X number of times)
-    const xmlDoc: XMLDocument = this.parser.parseFromString(fullResponse, "text/xml"); //XML isn't valid - need to get it all in a root tag
-    let incorrectProgram: string = dedent(xmlDoc.querySelector("incorrect-program").textContent); //This will also remove trailing whitespace from any possible indentation of first line - figure out a fix for this. However, it does currently maintain the rest of the indentation
+    try {
+      const xmlDoc: XMLDocument = this.parser.parseFromString(fullResponse, "text/xml");
+      console.log(xmlDoc)
+      let incorrectProgram: string = dedent(xmlDoc.querySelector("incorrect-program").textContent); //This will also remove trailing whitespace from any possible indentation of first line - figure out a fix for this. However, it does currently maintain the rest of the indentation
 
-    let explanation: string = xmlDoc.querySelector("explanation").textContent;
-    let errorExplanations: Array<string> = explanation.split("\n\n");
-    let regenerationNumber: number = this.regenerationLimits - this.remainingRegenerations;
+      let explanation: string = xmlDoc.querySelector("explanation").textContent;
+      let errorExplanations: Array<string> = explanation.split("\n\n");
+      let regenerationNumber: number = this.regenerationLimit - this.remainingRegenerations;
+  
+      this.exerciseGenerated = true; //TODO: This needs some work - getting to the danger of having too many boolean variables to fulfill
+      this.remainingRegenerations--;
+  
+      this.generatedExercises.push({
+        incorrectProgram,
+        errorExplanations,
+        fullResponse,
+        regenerationNumber
+      });
+    }
+    catch (e: any) {
+      if (this.exceptionalRemainingRegenerations <= 0) {
+        console.error("The LLM did not generate a valid response after three attempts.")
 
-    this.exerciseGenerated = true; //TODO: This needs some work - getting to the danger of having too many boolean variables to fulfill
+        const dialogRef = this.dialog.open(GenericDialogBoxComponent, {
+          data: {
+            title: "Oops!",
+            content: "Looks the like the model's having trouble generating a valid response. Try refreshing the page or adjusting your prompts."
+          }
+        });
 
-    this.generatedExercises.push({
-      incorrectProgram,
-      errorExplanations,
-      fullResponse,
-      regenerationNumber
-    })
+        // Manually restore focus to the menu trigger since the element that
+        // opens the dialog won't be in the DOM any more when the dialog closes.
+        //dialogRef.afterClosed().subscribe(() => this.menuTrigger.focus());
+      }
+      else {
+        console.error("The LLM did not generate a valid response, regenerating response.")
+        this.exceptionalRemainingRegenerations--;
+        this.generateExercise();
+      }
+    }
   }
 
   /**
