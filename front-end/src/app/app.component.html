@@ -14,24 +14,24 @@
         <h2>Program Details</h2>
         <div>
             <form [formGroup]="programDetailsForm" class="program-details-form" (ngSubmit)="generateExercise()">
-                <h4 >Program Description</h4>
-                <mat-form-field >
+                <h4>Program Description</h4>
+                <mat-form-field>
                     <mat-label>Program Description</mat-label>
-                    <textarea matInput id="program-description" type="text" formControlName="programDescription" required></textarea>
+                    <textarea matInput id="program-description" matTooltip="Enter a description of what the program should do" matTooltipShowDelay="tooltipShowDelay" type="text" formControlName="programDescription" required></textarea>
                     <mat-error>Make sure the program description isn't blank</mat-error>
                 </mat-form-field>
 
                 <h4>Correct Program</h4>
                 <mat-form-field>
                     <mat-label>Correct Program</mat-label>
-                    <textarea matInput id="correct-program" type="text" formControlName="correctProgram" required></textarea>
+                    <textarea matInput id="correct-program" matTooltip="Enter an error-free program that correctly fulfils the program description" matTooltipShowDelay="tooltipShowDelay" type="text" formControlName="correctProgram" required></textarea>
                     <mat-error>Make sure the correct isn't blank</mat-error>
                 </mat-form-field>
                 <!--<app-code-viewer matInput formControlName="correctProgram" [codeToDisplay]="sampleProgram" [isReadOnly]="false" style="margin-bottom: 1.5%;"></app-code-viewer>-->
 
                 <mat-form-field>
-                    <mat-label>Number of syntax errors</mat-label>
-                    <mat-select matNativeControl formControlName="numberSyntaxErrors" required>
+                    <mat-label >Number of syntax errors</mat-label>
+                    <mat-select matTooltip="A syntax error is a definition here" matTooltipShowDelay="tooltipShowDelay" matNativeControl formControlName="numberSyntaxErrors" required>
                         <mat-option *ngFor="let i of [0,1,2,3]" value="{{i}}">{{i}}</mat-option>
                     </mat-select>
                     <mat-error>Make sure that you select a valid value</mat-error>
@@ -39,7 +39,7 @@
 
                 <mat-form-field>
                     <mat-label>Number of runtime errors</mat-label>
-                    <mat-select matNativeControl formControlName="numberRuntimeErrors" required>
+                    <mat-select matTooltip="A runtime error is a definition here" matTooltipShowDelay="tooltipShowDelay" matNativeControl formControlName="numberRuntimeErrors" required>
                         <mat-option *ngFor="let i of [0,1,2,3]" value="{{i}}">{{i}}</mat-option>
                     </mat-select>
                     <mat-error>Make sure that you select a valid value</mat-error>
@@ -47,14 +47,13 @@
 
                 <mat-form-field>
                     <mat-label>Number of logical errors</mat-label>
-                    <mat-select matNativeControl formControlName="numberLogicalErrors" required>
+                    <mat-select matTooltip="A logical error is a definition here" matTooltipShowDelay="tooltipShowDelay" matNativeControl formControlName="numberLogicalErrors" required>
                         <mat-option *ngFor="let i of [0,1,2,3]" value="{{i}}">{{i}}</mat-option>
                     </mat-select>
                     <mat-error>Make sure that you select a valid value</mat-error>
                 </mat-form-field>
 
                 <button mat-flat-button type="submit" color="primary" [disabled]="!programDetailsForm.valid || loading || remainingRegenerations == 0">{{submitButtonDisplay()}}</button>
-
             </form>
         </div>
     </div>
@@ -63,7 +62,7 @@
         <h2>Loading...</h2>
     </div>
 
-    <div *ngIf="exerciseGenerated">
+    <div *ngIf="exerciseGenerated" class="exercise-generations">
         <app-generated-exercise-view *ngFor="let exercise of generatedExercises" [correctProgram]="exercise.correctProgram" [incorrectProgram]="exercise.incorrectProgram" [errorExplanations]="exercise.errorExplanations" [fullResponse]="exercise.fullResponse" [regenerationNumber]="exercise.regenerationNumber"></app-generated-exercise-view>
     </div>
 </div>

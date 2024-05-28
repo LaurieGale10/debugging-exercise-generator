@@ -50,8 +50,7 @@ export class AppComponent {
 
   sampleProgram: string = 'year_born = input("What year were you born in? ")\nage = 2023-int(year_born)\n\nfirst_name = input("What is your first name? ")\nlast_name = input("What is your last name? ")\nprint("Your name is",first_name,last_name,"and at the end of this year you will be", age)';
   sampleProgramDescription: string = 'This program inputs the user\'s first name, surname, and the year they were born. It then prints a sentence to the screen with their full name and how old they will be at the end of the year.\n\nIf a user\'s first name is Jo, their last name is Bloggs, and they were born in 2008, the program should print: "Your name is Jo Bloggs and at the end of this year you will be 15".';
-  tooltipShowDelay = new FormControl(1000);
-  tooltipHideDelay = new FormControl(0); //TODO: Find out what elements these properties are valid on
+  tooltipShowDelay = 1000;
 
   exerciseGenerated: boolean = false;
   fullResponse: string | null = null;
@@ -229,7 +228,7 @@ export class AppComponent {
     //Parses response as XML document to allow for easy access of relevant information.
     try {
       const xmlDoc: XMLDocument = this.parser.parseFromString(fullResponse, "text/xml");
-      console.log(xmlDoc)
+      //console.log(xmlDoc)
       let correctProgram = this.programDetailsForm.value.correctProgram;
       let incorrectProgram: string = dedent(xmlDoc.querySelector("incorrect-program").textContent); //This will also remove trailing whitespace from any possible indentation of first line - figure out a fix for this. However, it does currently maintain the rest of the indentation
       let explanation: string = xmlDoc.querySelector("explanation").textContent;
