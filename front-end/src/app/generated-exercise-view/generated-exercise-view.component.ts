@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { CodeViewerComponent } from '../code-viewer/code-viewer.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {FormsModule} from '@angular/forms';
+import * as jsdiff from 'diff';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -33,7 +34,9 @@ export class GeneratedExerciseViewComponent {
 
   snackBarDisplayDuration: number = 2; //Time to display snackbar component for in seconds
 
-  showDiffs: boolean = false; //Whether to show comparison with correctProgram
+  showCorrectProgramComparison: boolean = false; //Whether to show comparison with correctProgram
+
+  showDiffs: boolean = true; //Whether to display the static correctProgram or diffs between correctProgram and incorrectProgram
 
   /**
    * Method to open "Copied to clipboard" snackbar message for snack
@@ -43,6 +46,28 @@ export class GeneratedExerciseViewComponent {
       duration: 1000,
       panelClass: ["custom-snack-bar"]
     });
+  }
+
+  diff(oldString: string, newString: string): string {
+    let diff = jsdiff.diffLines(oldString, newString);
+    let outputString = "";
+    //Iterates through lines of diff string, grouped into added, removed, and unchanged and adds them to a new outputString. +'s and -'s are appended to added and removed lines respectively
+    diff.forEach(part => {
+      const lines: string[] = part.value.split('\n').filter(line => line.trim() !== '');
+      if (part.added) {
+        lines.forEach(line => {
+          outputString += `+ ${line}\n`;
+        });
+      } else if (part.removed) {
+        lines.forEach(line => {
+          outputString += `- ${line}\n`;
+        });
+      }
+      else {
+        outputString += part.value;
+      }
+    });
+    return outputString;
   }
 
 }

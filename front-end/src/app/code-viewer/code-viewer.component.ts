@@ -2,6 +2,8 @@ import { AfterViewInit, Component, EventEmitter, Input, OnChanges, Output, Simpl
 import { EditorView, basicSetup } from 'codemirror';
 import { EditorState, Extension, Compartment } from '@codemirror/state';
 import { python } from "@codemirror/lang-python";
+import { StreamLanguage } from "@codemirror/language";
+import { diff } from '@codemirror/legacy-modes/mode/diff';
 
 @Component({
   selector: 'app-code-viewer',
@@ -18,6 +20,8 @@ export class CodeViewerComponent implements AfterViewInit, OnChanges {
 
   @Input() isReadOnly: boolean | undefined;
 
+  @Input() displayDiffMarkdown: boolean = false;
+
   editorState: EditorState | undefined;
   editorView: EditorView | undefined;
   editorExtensions: Extension = [basicSetup, python()];
@@ -31,7 +35,7 @@ export class CodeViewerComponent implements AfterViewInit, OnChanges {
       this.editorState = EditorState.create({
         doc: this.codeToDisplay,
         extensions: [basicSetup,
-          python(),
+          this.displayDiffMarkdown ? StreamLanguage.define(diff) : python(),
           this.readOnly.of(EditorState.readOnly.of(this.isReadOnly))
         ]
       });

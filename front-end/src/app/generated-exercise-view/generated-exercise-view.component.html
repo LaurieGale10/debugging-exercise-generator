@@ -22,11 +22,11 @@
             <mat-icon>content_copy</mat-icon>
         </button>
 
-        <mat-slide-toggle [(ngModel)]="showDiffs" class="example-margin" color="primary">
+        <mat-slide-toggle [(ngModel)]="showCorrectProgramComparison" class="example-margin" color="primary">
             Compare with correct program
         </mat-slide-toggle>
 
-        <app-code-viewer *ngIf="correctProgram && showDiffs" [codeToDisplay]="correctProgram" [isReadOnly]="true"></app-code-viewer>
+        <app-code-viewer *ngIf="correctProgram && showCorrectProgramComparison" [codeToDisplay]="showDiffs ? diff(correctProgram, incorrectProgram) : correctProgram" [isReadOnly]="true" [displayDiffMarkdown]="showDiffs"></app-code-viewer>
     </div>
 
     <div class="generated-program-pane">
