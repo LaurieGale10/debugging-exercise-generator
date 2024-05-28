@@ -1,7 +1,11 @@
-# LOWER TO UPPER CASE CONVERSION
+def convert_to_uppercase(lowercase):
+    if lowercase < 97 and lowercase > 122:
+       return "You did not input a lowercase letter"
+    else:
+        asciiValue = ord(lowercase)
+        newAsciiValue = asciiValue + 32
+        newCharacter = chr(newAsciiValue)
+        return newAsciiValue
 
-character = input('Enter lowercase character: ')
-asciiValue = ord(character)
-newAsciiValue = asciiValue-32
-newCharacter = chr(newAsciiValue)
-print("Lower case "+ character+"("+asciiValue+") -> upper case "+newCharacter+" ("+newAsciiValue+")")
+lowercaseCharacter = input('Enter lowercase character: ')
+newCharacter = convert_to_uppercase(lowercaseCharacter)
