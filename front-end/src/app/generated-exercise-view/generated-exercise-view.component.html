@@ -18,18 +18,20 @@
             }
         </ol>
 
-        <div class="copy-pane">
-            <button mat-icon-button color="primary" [cdkCopyToClipboard]="incorrectProgram" (click)="openSnackBar()">
-                <mat-icon>content_copy</mat-icon>
-              </button>
-              <p *ngIf="false">Copied to clipboard!</p>
-        </div>
+        <button mat-icon-button color="primary" [cdkCopyToClipboard]="incorrectProgram" (click)="openSnackBar()">
+            <mat-icon>content_copy</mat-icon>
+        </button>
+
     </div>
 
     <div class="generated-program-pane">
         <h2>Full Response From Model</h2>
 
         <pre>{{fullResponse}}</pre>
+
+        <button mat-icon-button color="primary" [cdkCopyToClipboard]="fullResponse" (click)="openSnackBar()">
+            <mat-icon>content_copy</mat-icon>
+        </button>
     </div>
 
 </mat-expansion-panel>
