@@ -14,8 +14,8 @@
         <h2>Program Details</h2>
         <div>
             <form [formGroup]="programDetailsForm" class="program-details-form" (ngSubmit)="generateExercise()">
-                <h4>Program Description</h4>
-                <mat-form-field>
+                <h4 >Program Description</h4>
+                <mat-form-field >
                     <mat-label>Program Description</mat-label>
                     <textarea matInput id="program-description" type="text" formControlName="programDescription" required></textarea>
                     <mat-error>Make sure the program description isn't blank</mat-error>
@@ -64,6 +64,6 @@
     </div>
 
     <div *ngIf="exerciseGenerated">
-        <app-generated-exercise-view *ngFor="let exercise of generatedExercises" [incorrectProgram]="exercise.incorrectProgram" [errorExplanations]="exercise.errorExplanations" [fullResponse]="exercise.fullResponse" [regenerationNumber]="exercise.regenerationNumber"></app-generated-exercise-view>
+        <app-generated-exercise-view *ngFor="let exercise of generatedExercises" [correctProgram]="exercise.correctProgram" [incorrectProgram]="exercise.incorrectProgram" [errorExplanations]="exercise.errorExplanations" [fullResponse]="exercise.fullResponse" [regenerationNumber]="exercise.regenerationNumber"></app-generated-exercise-view>
     </div>
 </div>

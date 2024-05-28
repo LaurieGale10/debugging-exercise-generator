@@ -11,6 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
+import {TooltipPosition, MatTooltipModule} from '@angular/material/tooltip';
 
 import { CodeViewerComponent } from "./code-viewer/code-viewer.component";
 import { OpenAI } from 'openai';
@@ -23,7 +24,7 @@ import { GenericDialogBoxComponent } from './generic-dialog-box/generic-dialog-b
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.sass',
-    imports: [RouterOutlet, ReactiveFormsModule, CommonModule, NgFor, GeneratedExerciseViewComponent, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, CodeViewerComponent, GenericDialogBoxComponent]
+    imports: [RouterOutlet, ReactiveFormsModule, CommonModule, NgFor, GeneratedExerciseViewComponent, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, MatTooltipModule, CodeViewerComponent, GenericDialogBoxComponent]
 })
 export class AppComponent {
   title = 'front-end';
@@ -47,9 +48,10 @@ export class AppComponent {
   3) Within the <error-location> tags, write the line number of each error that has been injected. Ensure the line numbers correspond to the lines containing errors within the program in the <incorrect-program> tags
   4) Explain each error you have injected within <explanation> XML tags.`); //This doesn't change - needs to be formatted properly
 
-
   sampleProgram: string = 'year_born = input("What year were you born in? ")\nage = 2023-int(year_born)\n\nfirst_name = input("What is your first name? ")\nlast_name = input("What is your last name? ")\nprint("Your name is",first_name,last_name,"and at the end of this year you will be", age)';
   sampleProgramDescription: string = 'This program inputs the user\'s first name, surname, and the year they were born. It then prints a sentence to the screen with their full name and how old they will be at the end of the year.\n\nIf a user\'s first name is Jo, their last name is Bloggs, and they were born in 2008, the program should print: "Your name is Jo Bloggs and at the end of this year you will be 15".';
+  tooltipShowDelay = new FormControl(1000);
+  tooltipHideDelay = new FormControl(0); //TODO: Find out what elements these properties are valid on
 
   exerciseGenerated: boolean = false;
   fullResponse: string | null = null;
@@ -174,7 +176,7 @@ export class AppComponent {
     
     </root>`);
 
-    return dummyResponseNoRoot;
+    return dummyResponseText;
   }
 
   async fetchReponse(userPrompt: string): Promise<string> {
@@ -228,16 +230,18 @@ export class AppComponent {
     try {
       const xmlDoc: XMLDocument = this.parser.parseFromString(fullResponse, "text/xml");
       console.log(xmlDoc)
+      let correctProgram = this.programDetailsForm.value.correctProgram;
       let incorrectProgram: string = dedent(xmlDoc.querySelector("incorrect-program").textContent); //This will also remove trailing whitespace from any possible indentation of first line - figure out a fix for this. However, it does currently maintain the rest of the indentation
-
       let explanation: string = xmlDoc.querySelector("explanation").textContent;
       let errorExplanations: Array<string> = explanation.split("\n\n");
+
+      this.remainingRegenerations--;
       let regenerationNumber: number = this.regenerationLimit - this.remainingRegenerations;
   
       this.exerciseGenerated = true; //TODO: This needs some work - getting to the danger of having too many boolean variables to fulfill
-      this.remainingRegenerations--;
   
       this.generatedExercises.push({
+        correctProgram,
         incorrectProgram,
         errorExplanations,
         fullResponse,

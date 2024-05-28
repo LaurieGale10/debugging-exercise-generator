@@ -6,6 +6,7 @@
  * fullResponse: The original response from the LLM
  */
 export type GeneratedExercise = {
+    correctProgram: string,
     incorrectProgram: string,
     errorExplanations: Array<string>,
     fullResponse: string,
