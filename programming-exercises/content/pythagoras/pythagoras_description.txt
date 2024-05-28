@@ -2,6 +2,6 @@ Description adapted from https://cgi.csc.liv.ac.uk/~frans/CPD/PythonCPD/PythonEx
 
 Write a Python programme which, given the length of the opposite (O) and adjacent (A) sides of a right angled triangle determine the hypotenuse (H) using Pythagoras theorem:
 
-H^2 = O^2 + A^2.
+H^2 = O^2 + A^2
 
-Assume sides are to be input as floating point numbers.
+Assume sides are to be inputted as floating point numbers.

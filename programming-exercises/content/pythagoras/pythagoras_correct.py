@@ -1,12 +1,9 @@
-# Pythagoras Version I
-
 import math
 
-print('Input opposite and adjacent sides of a right angled triangle')
-opposite = float(input())
-adjacent = float(input())
+opposite = float(input('Input the opposite side of a right angled triangle '))
+adjacent = float(input('Input the adjacent side of a right angled triangle '))
 
 hypotenuse = math.sqrt((opposite**2)+(adjacent**2))
-print('Given:  opposite = {0:3f}, adjacent = {0:3f}'.format(opposite,adjacent))
-print('Result: hypotenuse = {0:3f}'.format(hypotenuse))
+print(f'Given:  opposite = {opposite}, adjacent = {adjacent}')
+print(f'Result: hypotenuse = {hypotenuse}')
 	
