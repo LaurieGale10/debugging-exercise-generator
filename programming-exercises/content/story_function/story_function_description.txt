@@ -1,0 +1,3 @@
+Description taken from https://www.csnewbs.com/python-section-7-practice-tasks.
+
+Create a program that takes 3 inputs from the user – a name, a villain and a place. Write a function that outputs a story using the user’s answers.

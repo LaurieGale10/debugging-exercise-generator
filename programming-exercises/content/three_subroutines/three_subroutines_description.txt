@@ -1,0 +1,7 @@
+Description adapted from https://www.csnewbs.com/python-section-7-practice-tasks.
+
+Create a program with three different subroutines.
+
+One subroutine asks the user their name and prints "Hello there, <name>".
+The second asks for their age and prints "<age> is a good age to be".
+The third asks for their favourite colour and prints a "<colour> is definitely a nice colour".
