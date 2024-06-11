@@ -1,0 +1,19 @@
+<description>
+Produce a Python program that converts lower case alphabetic characters to upper case alphabetic characters. Note that lower case letters a..z have ASCII codes (Unicodes) 97..122, and upper case letters A..Z have ASCII codes (Unicodes) 65..90. Therefore to convert from lower case to upper case we must subtract -32 from the Unicode of the input character.
+</description>
+
+<correct-program>
+def convert_to_uppercase(lowercase):
+    asciiValue = ord(lowercase)
+    newAsciiValue = asciiValue-32
+    newCharacter = chr(newAsciiValue)
+    return newCharacter
+
+lowercaseCharacter = input('Enter lowercase character: ')
+newCharacter = convert_to_uppercase(lowercaseCharacter)
+print("Lower case "+ lowercaseCharacter+" -> upper case "+newCharacter)
+</correct-program>
+
+<syntax>1</syntax>
+<runtime>2</runtime>
+<logical>3</logical>

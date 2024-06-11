@@ -1,0 +1,21 @@
+<description>
+Write a program that creates a list containing the numbers 1, 2, 3, 4 and 5. Print the list, then remove the numbers 1 and 3, then print the list again.
+</description>
+
+<correct-program>
+numbers = [1, 2, 3, 4, 5]
+
+# Print the original list
+print(numbers)
+
+# Remove the numbers 1 and 3
+numbers.remove(1)
+numbers.remove(3)
+
+# Print the list after removal
+print(numbers)
+</correct-program>
+
+<syntax>2</syntax>
+<runtime>7</runtime>
+<logical>0</logical>

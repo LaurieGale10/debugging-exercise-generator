@@ -1,0 +1,28 @@
+<root>
+    <thinking>
+    Two common novice syntax errors can easily be added to this program. Novice programmers often do not add a colon and at the end of iteration and selection statements, so the colon on line 2 can be removed. They also often do not add quotes to print statements, so the quotes in one of the print statements can be added.
+    To add a runtime error, since novice programmers often get confused with types, the int() cast can be removed in line 3, adding a type error (a type of runtime error in Python).
+    </thinking>
+    
+    <incorrect-program>
+    total = 0
+    while total <= 100
+        number = input("Enter a number: ")
+        total += number
+        print(f"Current total: {total}")
+        
+    print(OVERLOAD! You have gone over 100!)
+    </incorrect-program>
+    
+    <error-location>
+    2
+    3
+    7
+    </error-location>
+    
+    <explanation>
+    Removed the colon from the end of line 2, adding a syntax error.
+    Removed the int() cast from line 3, adding a type error (a type of runtime error in Python).
+    Removed the quotation marks from line 7, adding a syntax error.
+    </explanation>
+</root>

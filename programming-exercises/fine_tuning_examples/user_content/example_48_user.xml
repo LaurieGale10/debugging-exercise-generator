@@ -1,0 +1,22 @@
+<description>
+Write a program that generates a list with three random integers between 1-100 and prints it to the screen.
+
+Then write an input line that lets the user input an integer.
+
+Add what the user has written to the list and print the list, sorted in ascending order.
+</description>
+    
+<correct-program>
+import random
+
+random_list = [random.randint(1,100), random.randint(1,100), random.randint(1,100)]
+print("Initial random list:", random_list)
+user_input = int(input("Please enter an integer: "))
+random_list.append(user_input)
+random_list.sort()
+print("Updated list:", random_list)
+</correct-program>
+
+<syntax>2</syntax>
+<runtime>3</runtime>
+<logical>4</logical>

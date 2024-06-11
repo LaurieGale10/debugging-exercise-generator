@@ -1,0 +1,39 @@
+<root>
+    <thinking>
+    Novice programmers often make lots of incorrect changes to small symbols, so I can add a couple of these in the clauses of the if statement to add some syntax errors. We can also do the same to a print statement, perhaps by removing the brackets. Novices also get keywords confused sometimes, so we could change the else clause to something else. Finally we can add some incorrect indentation, as this is a construct that novices often don’t get syntactically correct.
+    We could add a runtime error by capitalising one of the references to the number variable, as novices sometimes incorrectly capitalise variable references.
+    </thinking>
+    
+    <incorrect-program>
+    number = int(input("Enter a number between 1 and 4: "))
+    
+    # Check the number and print the corresponding Spanish number
+    if number == 1:
+        print("You entered 1: Uno")
+    elif number = 2:
+        print("You entered 2: Dos")
+    elif number == 3:
+        print "You entered 3: Tres"
+    elif Number == 4
+        print("You entered 4: Cuatro")
+    elif:
+    print("That number is not valid.")
+    </incorrect-program>
+    
+    <error-location>
+    6
+    9
+    10
+    10
+    12
+    13
+    </error-location>
+    
+    <explanation>
+    Changed the == to = in the if condition of line 6.
+    Removed the brackets from the call to the print function in line 9.
+    Removed the colon from the if statement clause and capitalised the reference to the number variable on line 10.
+    Erroneously renamed the “else” keyword to “elif”.
+    Removed the necessary indentation on line 13.
+    </explanation>
+</root>

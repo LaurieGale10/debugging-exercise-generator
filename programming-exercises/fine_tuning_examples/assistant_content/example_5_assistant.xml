@@ -1,0 +1,28 @@
+<root>
+    <thinking>
+    Indentation is something that novices commonly get wrong, so I can remove some necessary indentation in the if statement. To add runtime errors, I can change the = in the first assignment to be a comparison (==). I can also change one of the references to the age variable. I’ll add a logical error by changing the comparison in the if statement, so that it incorrectly states anyone over 18 is allowed to vote (rather than 18 or over).
+    </thinking>
+    
+    <incorrect-program>
+    age == int(input("Enter your age: "))
+    
+    # Check if the user is old enough to vote
+    if Age > 18:
+        print("You are old enough to vote!")
+    else:
+    print("You are not old enough to vote yet.")
+    </incorrect-program>
+    
+    <error-location>
+    1
+    4
+    4
+    7
+    </error-location>
+    
+    <explanation>
+    Runtime error on line 1 due to == being used in assignment instead of =
+    I added a runtime error on line 4 by changing the age variable reference to a non-existent age_input, as well as adding a logical adding by replacing the >= with just a >.
+    I removed the necessary indentation to line 7 after the else condition which results in an additional syntax error.
+    </explanation>
+</root>

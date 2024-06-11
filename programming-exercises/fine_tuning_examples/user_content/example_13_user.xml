@@ -1,0 +1,23 @@
+<description>
+Create a program that asks for a number between 1 and 4. Then use if and elif statements to see what the user has entered and print a statement that displays the chosen number in Spanish. Is the user enters a number above 4, the program should print "That number is not valid".
+</description>
+
+<correct-program>
+number = int(input("Enter a number between 1 and 4: "))
+
+# Check the number and print the corresponding Spanish number
+if number == 1:
+    print("You entered 1: Uno")
+elif number == 2:
+    print("You entered 2: Dos")
+elif number == 3:
+    print("You entered 3: Tres")
+elif number == 4:
+    print("You entered 4: Cuatro")
+else:
+    print("That number is not valid.")
+</correct-program>
+
+<syntax>2</syntax>
+<runtime>2</runtime>
+<logical>2</logical>

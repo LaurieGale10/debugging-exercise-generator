@@ -1,0 +1,35 @@
+<root>
+    <thinking>
+    Since novices often struggle with implementing print statements with correct syntax in Python, the quotes from each print statement could be removed to add two syntax errors.
+    Lots of runtime errors need to be added. Since novices get the assignment operator (=) and the equality operator (==) commonly confused, both assignments could be replaced with an equality operator. Additionally, a couple of the variable references could be manipulated in such a way to introduce different types of runtime errors in Python.
+    A logical error can be added by changing the condition of the if statement, so as novices sometimes get comparator operators mixed up.
+    </thinking>
+    
+    <incorrect-program>
+    number1 == float(input("Enter the first number: "))
+    number1 == float(input("Enter the second number: "))
+    
+    total = number1 * number2
+    if Total >= 9000:
+        print(It's over 9,000!!!)
+    else:
+        print(Unfortunately the number is not over 9000.)
+    </incorrect-program>
+    
+    <error-location>
+    1
+    2
+    2
+    5
+    5
+    6
+    8
+    </error-location>
+    
+    <explanation>
+    Converted the assignment operators (=) in lines 1 and 2 to equality operators (==).
+    Changed the assignment of number2 to number1 in line 2, introducing a runtime error when number2 is referred to in line 5.
+    Capitalised the reference to the total variable on line 5, introducing a runtime error. Also replaced the greater than comparator with greater than or equals to, which makes the if statement condition logically incorrect.
+    Removed the quotations from the print statements in lines 6 and 8, both adding syntax errors.
+    </explanation>
+</root>
