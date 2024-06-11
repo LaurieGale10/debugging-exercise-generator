@@ -1,0 +1,5 @@
+Example adapted from https://www.csnewbs.com/python-section-4-practice-tasks.
+
+A school is organising a trip to a theme park. The coaches they are hiring can fit 45 people.
+
+Enter the total number of people going on the trip and work out how many coaches will be full (using integer division) and how many people will be left over on a partly full coach (using modulo division).

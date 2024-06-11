@@ -2,4 +2,4 @@ Description taken from https://www.csnewbs.com/python-section-7-practice-tasks.
 
 Create a program that asks a user to input the length of a side in a square.
 
-Write a function that takes this value and returns it to be printed.
+Write a function that takes this value and returns the area to be printed.

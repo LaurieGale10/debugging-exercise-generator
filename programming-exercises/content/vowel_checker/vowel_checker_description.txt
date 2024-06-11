@@ -1,0 +1,7 @@
+Descripted adapted from https://www.csnewbs.com/python-section-9-practice-tasks.
+
+It’s literacy week and the Head of English would like you to create a vowel checker program to ensure that year 7s are using plenty of vowels in their work.
+
+- Let the user enter any sentence they like.
+- For each letter in the sentence that they have just entered you need to use if statements to check if it is a vowel.
+- After the for loop you need to print the number of vowels they have used.

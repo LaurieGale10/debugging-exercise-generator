@@ -1,0 +1,7 @@
+Description adapted from https://www.csnewbs.com/python-section-8-practice-tasks.
+
+Write a program that generates a list with three random integers between 1-100 and prints it to the screen.
+
+Then write an input line that lets the user input an integer.
+
+Add what the user has written to the list and print the list, sorted in ascending order.
