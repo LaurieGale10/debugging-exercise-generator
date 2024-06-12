@@ -29,7 +29,7 @@ import { GenericDialogBoxComponent } from './generic-dialog-box/generic-dialog-b
 export class AppComponent {
   title = 'front-end';
   
-  testingUI: boolean = true;
+  testingUI: boolean = false;
   
   openai: OpenAI = new OpenAI({ apiKey: environment.openAiApiKey, dangerouslyAllowBrowser: true});
   systemPrompt: string = dedent(`
