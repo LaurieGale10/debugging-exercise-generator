@@ -1,0 +1,24 @@
+<root>
+    <thinking>
+    Several syntax errors can be added into this program. To make them challenging, they can be added on different lines. Novice programmers often struggle with correctly matching the number of brackets in an expression, and since line 2 already has two closing brackets, another could be added without seeming too obvious. Novices also commonly forget to add brackets at all where necessary, so the print statement could have its brackets removed.
+    To add a runtime error, one of the assignment operators (=) could be replaced with an equality operator (==). This is a very typical errors that novice programmers tend to make, which adds a NameError in Python (instance of runtime error).
+    </thinking>
+    
+    <incorrect-program>
+    transportation == input("How do you get to school? ")
+    minutes = int(input("How many minutes does it take you? ")))
+    print f"I can't believe it takes you {minutes} minutes to get to school by {transportation}!"
+    </incorrect-program>
+    
+    <error-location>
+    1
+    2
+    3
+    </error-location>
+    
+    <explanation>
+    Replaced the assignment operator (=) with an equality (==) operator in line 1.
+    Added an additional closing bracket to line 2.
+    Removed the brackets from the print statement on line 3.
+    </explanation>	
+</root>

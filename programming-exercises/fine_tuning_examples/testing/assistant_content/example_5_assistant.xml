@@ -1,0 +1,41 @@
+<root>
+    <thinking>
+    Syntax errors can be added in lots of places in this program. Firstly, novice programmers have been found to miss colons at the end of selection and iteration in Python, so the colon at the end of line 8 can be removed. They also sometimes get the syntax of assignment statements incorrect, so the first two assignments can be manipulated to be syntactically incorrect.
+    To add runtime errors, since novice programmers have been found to misspell variable names (which leads to a runtime variable in Python), the two references to the days variable can be misspelled. The type of the value on line 10 can be changed to a string to introduce a type error, as novices also struggle to correctly convert between int and string types in Python.
+    Novice programmers often get symbols confused, so the inequality in line 8 can be changed such that a logical error is added. Similarly, the * operator in line 12 can be changed to be logically incorrect. 
+    </thinking>
+    
+    <incorrect-program>
+    current_distance "=" 5.0
+    required_distance "=" 10.0
+    
+    # Initialise the day counter
+    days = 0
+    
+    # Loop until the current distance reaches or exceeds the required distance
+    while current_distance > required_distance
+        # Increase the day counter
+        Days += "1"
+        # Increase the distance by 10%
+        current_distance += 1.1
+    print("The number of days required to train is",Days)
+    </incorrect-program>
+    
+    <error-location>
+    1
+    2
+    8
+    10
+    10
+    12
+    13
+    </error-location>
+    
+    <explanation>
+    Enclosed the assignment operators (=) in lines 1 and 2 in quotation marks, adding syntax errors.
+    Replaced the < inequality with > in line 8, adding a logical error.
+    Capitalised the references to the days variable in lines 10 and 13, each adding runtime errors.
+    Changed the type of the 1 in line 10 to a string, adding a runtime error.
+    Changed the * operator to + in line 12, adding a logical error.
+    </explanation>
+</root>
