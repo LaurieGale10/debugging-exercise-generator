@@ -1,3 +1,5 @@
+Description adapted from https://www.csnewbs.com/python-section-3-practice-tasks.
+
 Write a program that asks the user to enter their age and prints the year that they will turn 65.
 
-For example, if a user entered their age as 11, the program would print "You will turn 65 in either 2078 or 2079"
+For example, if a user entered their age as 11, the program would print "You will turn 65 in either 2078 or 2079".

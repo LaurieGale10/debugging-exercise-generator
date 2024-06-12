@@ -1,4 +1,3 @@
-# Prompt the user to enter a sentence
 sentence = input("Please enter a sentence: ").lower()
 
 vowel_count = 0
