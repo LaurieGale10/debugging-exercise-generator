@@ -7,4 +7,4 @@ for i in range(4):
 
 selected_number = random.choice(numbers)
 
-print("Randomly selected number: "+str(selected_number))
+print(f"Randomly selected number: {selected_number}")

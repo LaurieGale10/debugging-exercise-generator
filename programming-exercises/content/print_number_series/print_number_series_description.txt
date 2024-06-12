@@ -1,0 +1,3 @@
+Description adapted from https://snakify.org/en/lessons/for_loop_range/problems/.
+
+Write a program that inputs two integers, A and B. If A is less than B, print all the numbers from A to B in ascending order, otherwise print them in descending order.

@@ -1,0 +1,3 @@
+Description adapted from https://snakify.org/en/lessons/lists/problems/.
+
+Write a program that inputs five unique integers and adds each of them to a list. Then swap the minimum and maximum elements of the list and print the resulting list to the screen.

@@ -1,0 +1,10 @@
+Description adapted from https://www.csnewbs.com/python-extended-task-2.
+
+Create a program to simulate a lottery draw.
+
+- First, print "Welcome to the lottery" to the screen.
+- Then let the user enter five unique numbers between 1 and 20.
+- Next, randomise five numbers between 1 and 20.
+- Check to see how many numbers match and output output how many matches a user has, or "You've won the lottery!!" if all five numbers match.
+
+Use pauses to reveal each number one at a time like a real lottery draw.
