@@ -1,0 +1,48 @@
+<root>
+    <thinking>
+    This program contains several Python functions. Novices often struggle with correctly formatting the syntax of function calls and definitions, so the one of the syntax errors can be to do with this. Removing the brackets from one of the function calls is a typical novice mistake and introduces a type of runtime error in Python. One of the print statement’s syntax can also be incorrectly manipulated, adding a syntax error. This is something novices typically get confused with too.
+    The remaining two runtime errors can easily be added through replacing equality operators (=) with assignment operators (==), which add NameErrors in Python (types of runtime errors). 
+    Some logical errors can be added by removing necessary lines of code. One of the function calls and one of the print statements can be removed. Novice programmers also struggle with correctly formatting print statements, so one of these can be incorrectly formatted to no longer output a necessary variable. Finally, one of the variables can be assigned to a logically incorrect variable.
+    </thinking>
+    
+    <incorrect-program>
+    # Define the first subroutine to ask for the user's name
+    def ask_name():
+        name == input("What is your name? ")
+        print("Hello there,name")
+    
+    # Define the second subroutine to ask for the user's age
+    def ask_age():
+        age == "What is your age? "
+        print(age"is a good age to be")
+    
+    # Define the third subroutine to ask for the user's favourite colour
+    def ask_favourite_colour
+        colour = input("What is your favourite colour? ")
+    
+    # Call the subroutines to execute them
+    ask_name()
+    ask_favourite_colour
+    </incorrect-program>
+    
+    <error-location>
+    3
+    4
+    8
+    8
+    9
+    12
+    Removed 14
+    Removed 17
+    18
+    </error-location>
+    
+    <explanation>
+    Replaced assignment operators (=) with equality operators in lines 3 and 8. Also removed the call to the input() function on line 8, meaning age would be assigned to a logically incorrect value.
+    Replaced the reference to the variable name with name being printed on line 4, introducing a logical error.
+    Removed the comma from the print statement line 9, introducing a syntax error.
+    Removed the brackets and colon from line 12, introducing a syntax error.
+    Removed lines 14 and 17, both necessary to the programs execution, introducing logical errors.
+    Removed the brackets from function call on line 17, adding a runtime error.
+    </explanation>
+</root>    

@@ -1,0 +1,22 @@
+<description>
+Write a program that asks the user to input 4 different numbers.
+
+Put the four variables in a list and randomly print one of the elements to the screen.
+</description>
+
+<correct-program>
+import random
+
+numbers = []
+for i in range(4):
+    num = float(input(f"Enter number {i + 1}: "))
+    numbers.append(num)
+
+selected_number = random.choice(numbers)
+
+print("Randomly selected number: "+str(selected_number))
+</correct-program>
+
+<syntax>0</syntax>
+<runtime>2</runtime>
+<logical>3</logical>

@@ -1,0 +1,33 @@
+<root>
+    <thinking>
+    One runtime could be added by replacing an assignment operator (=) with an equality operator (==), which is something that novice programmers have been found to commonly do. Line 1 could also be removed, causing runtime errors whenever a function from the random library is imported. Although research hasn’t found this to be a common mistake, it is still a sufficiently challenging error.
+    Novices often make errors relating to loops. Some common examples include leaving necessary statements outside of loops and not iterating the correct number of times. Both of these errors could easily be added to this program; line 4 can be unindented and the range in line 2 can be changed. Then, the numbers variable can be printed instead of the selected_number variable.
+    </thinking>
+    
+    <incorrect-program>
+    numbers = []
+    for i in range(5):
+        num = float(input(f"Enter number {i + 1}: "))
+    numbers.append(num)
+    
+    selected_number == random.choice(numbers)
+    
+    print("Randomly selected number: "+numbers)
+    </incorrect-program>
+    
+    <error-location>
+    Removed original line 1
+    2
+    4
+    6
+    8
+    </error-location>
+    
+    <explanation>
+    Removed the import statement, raising a runtime error whenever a random selection is called.
+    Changed the range in the for loop so the loop iterates an incorrect number of times.
+    Unindented line 4, introducing a logical error.
+    Replaced the assignment operator (=) on line 6 with an inequality operator (==), introducing a runtime error.
+    Changed the variable reference in the print statement from selected_number to number, adding a logical error.
+    </explanation>
+</root>

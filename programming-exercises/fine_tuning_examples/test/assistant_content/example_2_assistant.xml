@@ -1,0 +1,35 @@
+<root>
+    <thinking>
+    To add some subtle syntax errors, both of the print statements could have similar errors added to them. Since novice programmers often get similar symbols confused, the quotation marks in the print statements on lines 8 and 9 could be mismatched. Novices also sometimes believe terms in an assignment can be either way around, so one of the assignment statements could have its terms switched.
+    In a similar vein to the mismatched quotations, some other symbols, specifically operators, could be manipulated to add logical errors, since novices often get similar symbols confused. The int division and modulo operators could both be changed. Since there’s still two logical errors to add, the variables could be switched around in the print statements so the output of the program is logically incorrect.
+    </thinking>
+    
+    <incorrect-program>
+    45 = coach_capacity
+    
+    total_people = int(input("Enter the total number of people going on the trip: "))
+    full_coaches = total_people / coach_capacity
+    leftover_people = total_people / coach_capacity
+    
+    # Print the results
+    print("Number of full coaches needed:'',leftover_people)
+    print("Number of people on the partly full coach:'',full_coaches)
+    </incorrect-program>
+    
+    <error-location>
+    1
+    4
+    5
+    8
+    8
+    9
+    9
+    </error-location>
+    
+    <explanation>
+    Switched the terms in the assignment of line 1, introducing a syntax error.
+    Changed both operators in lines 4 and 5 to division, each introducing logical errors.
+    Replaced the two closing quotation marks in lines 8 and 9 with different quotations, introducing syntax errors.
+    Switched around the variable references being printed in lines 8 and 9, making the program’s output logically incorrect.
+    </explanation>
+</root>

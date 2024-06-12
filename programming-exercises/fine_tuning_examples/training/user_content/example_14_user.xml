@@ -1,0 +1,20 @@
+<description>
+Create a program that checks if the user knows what the capital of Hungary is. The program should input the user's answer, display their answer and whether it was correct or incorrect. If it's incorrect, the correct answer (Budapest) should be displayed.
+</description>
+
+<correct-program>
+user_answer = input("What is the capital of Hungary? ")
+
+# Display the user's answer
+print(f"You answered: {user_answer}")
+
+# Check if the answer is correct and display the appropriate message
+if user_answer.strip().lower() == "budapest":
+    print("Correct!")
+else:
+    print("Incorrect. The correct answer is Budapest.")
+</correct-program>
+
+<syntax>0</syntax>
+<runtime>2</runtime>
+<logical>0</logical>

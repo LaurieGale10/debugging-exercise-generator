@@ -1,0 +1,28 @@
+<description>
+Develop a Python program which given the width, length and depth in whole metres (thus integer input), of a swimming pool determines and outputs:
+
+(a) the volume in litres
+(b) time in hours to fill the swimming pool, calculated by the volume / (rate * 3600)
+Assume that the rate of flow into the pool is 2.5 litres per second. Note: 1 litre = 1000 cubic centimetres, therefore 10 litres = 0.01 cubic metre, hence 1 metre = 1000 litres.
+</description>
+
+<correct-program>
+RATE_OF_FLOW  = 2.5
+METRES_2_LITRES = 1000.0
+SECONDS_2_HOURS = 1.0/3600.0
+    
+# Input 
+lengthOfPool = int(input("Enter length of pool: "))
+widthOfPool  = int(input("Enter width of pool: "))
+depthOfPool  = int(input("Enter depth of pool: "))
+
+volumeOfPoolInLitres = lengthOfPool * widthOfPool * depthOfPool * METRES_2_LITRES
+timeToFillPool = (volumeOfPoolInLitres/RATE_OF_FLOW) * SECONDS_2_HOURS
+
+print(f"Volume in Litres = {timeToFillPool}")
+print(f"Time to fill pool = {timeToFillPool}")
+</correct-program>
+
+<syntax>0</syntax>
+<runtime>1</runtime>
+<logical>0</logical>

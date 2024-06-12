@@ -1,0 +1,26 @@
+<root>
+    <thinking>
+    There are lots of small syntactical errors that novices usually make when programming, including forgetting to include single character symbols when necessary. I could therefore remove some brackets and the colon from the if statement to introduce some syntax errors.
+    </thinking>
+    
+    <incorrect-program>
+    age = int(input("Enter your age: "))
+    
+    # Check if the user is old enough to vote
+    if age => 18
+        print("You are old enough to vote!")
+    else:
+        print "You are not old enough to vote yet."
+    </incorrect-program>
+    
+    <error-location>
+    4
+    4
+    7
+    </error-location>
+    
+    <explanation>
+    I added two syntax errors to line 4; I changed the inequality in the if statement condition to be => instead of >=, which is syntactically incorrect, and removed the colon from the end of the if statement.
+    I removed the brackets from the call to the print function in line 7.
+    </explanation>
+</root>

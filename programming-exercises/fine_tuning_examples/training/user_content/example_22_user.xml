@@ -1,0 +1,22 @@
+<description>
+Write a Python programme which, given the length of the opposite (O) and adjacent (A) sides of a right angled triangle determine the hypotenuse (H) using Pythagoras theorem:
+
+H2 = O2 + A2
+
+Assume sides are to be inputted as floating point numbers.
+</description>
+
+<correct-program>
+import math
+
+opposite = float(input('Input the opposite side of a right angled triangle '))
+adjacent = float(input('Input the adjacent side of a right angled triangle '))
+
+hypotenuse = math.sqrt((opposite**2)+(adjacent**2))
+print(f'Given:  opposite = {opposite}, adjacent = {adjacent}')
+print(f'Result: hypotenuse = {hypotenuse}')
+</correct-program>
+
+<syntax>0</syntax>
+<runtime>3</runtime>
+<logical>3</logical>
