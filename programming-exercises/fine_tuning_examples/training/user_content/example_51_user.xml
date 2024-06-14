@@ -28,5 +28,5 @@ print("Team 2: ", shortened_country2)
 </correct-program>
 
 <syntax>0</syntax>
-<runtime>8</runtime>
-<logical>9</logical>
+<runtime>0</runtime>
+<logical>2</logical>

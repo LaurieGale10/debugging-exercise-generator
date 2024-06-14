@@ -1,0 +1,35 @@
+<root>
+    <thinking>
+    Novice programmers have been found to confuse logical operators, which lead to logical errors. In this program, there are two logical operators which can be illogically changed on lines 7 and 12.
+    </thinking>
+    
+    <incorrect-program>
+    country1 = input("Enter the name of the first country: ")
+    country2 = input("Enter the name of the second country: ")
+    
+    country1 = country1.upper()
+    country2 = country2.upper()
+    
+    if len(country1) > 4 and country1.startswith('Z'):
+        shortened_country1 = country1[:2]
+    else:
+        shortened_country1 = country1[:3]
+    
+    if len(country2) > 4 and country2.startswith('Z'):
+        shortened_country2 = country2[:2]
+    else:
+        shortened_country2 = country2[:3]
+    
+    print("Team 1: ", shortened_country1)
+    print("Team 2: ", shortened_country2)
+    </incorrect-program>
+    
+    <error-location>
+    7
+    12
+    </error-location>
+    
+    <explanation>
+    Replaced the "or" operators on lines 7 and 12 with "and", adding a logical error.
+    </explanation>
+</root>

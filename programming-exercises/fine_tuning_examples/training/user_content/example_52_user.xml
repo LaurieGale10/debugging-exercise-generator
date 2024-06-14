@@ -27,6 +27,6 @@ print("Team 1: ", shortened_country1)
 print("Team 2: ", shortened_country2)
 </correct-program>
 
-<syntax>0</syntax>
-<runtime>8</runtime>
-<logical>9</logical>
+<syntax>2</syntax>
+<runtime>2</runtime>
+<logical>1</logical>
