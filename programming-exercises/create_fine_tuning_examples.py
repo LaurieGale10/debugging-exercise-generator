@@ -62,5 +62,5 @@ def create_training_json(examples_to_include: list[str], json_file_name: str = "
             assistant_content_filename = os.path.join(script_dir, f"fine_tuning_examples/training/assistant_content/example_{example}_assistant.xml")
             write_jsonl_line(user_content_filename, assistant_content_filename, jsonfile)
 
-create_training_json([i for i in range(1,50)])
+create_training_json([i for i in range(1,53)])
 create_testing_json([i for i in range(1,11)])
