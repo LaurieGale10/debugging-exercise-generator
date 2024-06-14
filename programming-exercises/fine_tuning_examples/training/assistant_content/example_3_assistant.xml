@@ -1,11 +1,11 @@
 <root>
     <thinking>
-    It is very difficult to add 10 errors to a such a short program, so I'll add 3, as this seems like the near-maximum number of errors that can be added without significantly changing the program.
-    Novice programmers usually mismatch brackets and symbols, especially when formatting print statements, so a few errors can be introduced by these means. The print statement can also be capitalised to introduce another syntax error.
+    It’s very difficult to add 10 errors to a such a short program, but three like the near-maximum number of errors that can be added without significantly changing the program.
+    Novice programmers usually mismatch brackets and symbols, especially when formatting print statements, so perhaps the quotation marks can be mismatched the brackets removed. Capitalising function calls is something novice programmers also do, although this would add a runtime error in this context. As a result, the print statement could be incorrectly indented to add another syntax error that represents a common novice programming mistake.
     </thinking>
     
     <incorrect-program>
-    Print "Hello world''
+        print “Hello world’’
     </incorrect-program>
     
     <error-location>
@@ -15,8 +15,8 @@
     </error-location>
     
     <explanation>
-    It is very difficult to add all 10 errors to the program without significantly changing its content, so only 3 syntax errors were added to this example.
-    Capitalised the call to the print function .
+    It is very difficult to add all 10 errors to the program without significantly changing its content, so only three syntax errors were added to this example.
+    Incorrectly indented line 1.
     Removed the brackets from the call to the print() function.
     Mismatched the quotation marks to the print statement.
     </explanation>

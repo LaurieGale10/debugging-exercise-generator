@@ -1,17 +1,20 @@
 <root>
     <thinking>
-    I know novices often capitalise programming expressions that must be kept lower case, so I could capitalise the "print" function call to introduce a syntax error.
+    Novice Python programmers commonly incorrectly indent their code, so the line can be incorrectly indented. Since novices also commonly mismatch their brackets and quotation marks when programming, two more syntax errors can be added that relate to these common mistakes.
     </thinking>
     
     <incorrect-program>
-    Print("Hello world")
+        print(“Hello world’}
     </incorrect-program>
     
     <error-location>
     1
+    1
+    1
     </error-location>
     
     <explanation>
-    I capitalised the "print" function call to introduce an illegal expression, adding a single syntax error to the program.
+    Incorrectly indented line 1.
+    Changed the closing quotation mark and bracket to mismatch with the opening ones, each adding another syntax error.
     </explanation>
 </root>

@@ -1,19 +1,17 @@
 <root>
     <thinking>
-    Novices commonly incorrectly indent their code, so I can indent the line to introduce a syntax error. I can also mismatch the quotes and braces, as these are common syntactical mistakes made by novices.
+    Novice programmers often mismatch similar symbols, such as different types of brackets of quotation marks. As a result, the brackets required for the print statement can be mismatched (a curly brace could replace the opening bracket) to add a syntax error.
     </thinking>
     
     <incorrect-program>
-    Print("Hello world'}
+    print{“Hello world”)
     </incorrect-program>
     
     <error-location>
     1
-    1
-    1
     </error-location>
     
     <explanation>
-    I incorrectly indented line 1 to add a syntax error, as well as converting the closing quotation mark and bracket to mismatch with the opening ones, each in turn adding another syntax error.
+    Replaced the opening bracket with a curly brace.
     </explanation>
 </root>

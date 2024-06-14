@@ -1,8 +1,7 @@
 <root>
     <thinking>
-    I could incorrectly manipulate the syntax of the first line by conglomerating two of the keywords, input and int, together into one syntactically correct one. Novices sometimes confuse certain keywords together.
-    
-    I could also change the type of one of the values being assigned to inputInteger to cause a type error (an instance of a runtime error in Python).
+    The syntax of the first line by can be incorrectly manipulated by conglomerating two of the keywords, input and int, together into one syntactically correct one, as novices programmers have been observed to make this sort of change.
+    A type error (an instance of a runtime error in Python) could be added by changing the type of one of the values being assigned to inputInteger.
     </thinking>
     
     <incorrect-program>
@@ -12,7 +11,7 @@
     
     # Make calculation (simple if)
     if (inputInteger<50) :
-       inputInteger += "10"
+       inputInteger += “10”
     inputInteger = inputInteger**4.0
     
     # Output

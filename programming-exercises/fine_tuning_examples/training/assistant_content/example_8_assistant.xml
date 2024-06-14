@@ -1,6 +1,6 @@
 <root>
     <thinking>
-    In Python, type errors and name errors can be constituted as runtime errors, so I could add some of these. Novices sometimes incorrectly capitalise variable names, so I could change one of the references to inputInteger. Novices often forget to incorrectly type variables in python, so I could also remove the int() cast when reading in a value from the input, as this will cause a type error later on in the program. To add the remaining runtime error, I could change one of the assignments to include a == instead of =.
+    Novices sometimes incorrectly capitalise variable names, so one of the references to inputInteger could be misspelt. Novices often incorrectly type variables in python, so the necessary int() cast on line 3 could be removed to introduce a type error (a type of runtime error in Python). To add the remaining runtime error, one of the assignments in the programming could have its assignment operator (=) replaced with a comparison operator (==)
     </thinking>
     
     <incorrect-program>
@@ -25,7 +25,7 @@
     
     <explanation>
     Removed the int() cast for the inputInteger variable on line 3, which adds a type error (an instance of runtime error in Python).
-    Incorrectly renamed one of the references to the inputInteger variable on line 6 to InputInteger, which adds a NameError (runtime error)
-    Replaced the = assignment in line 8 with == to introduce another NameError (runtime error).
+    Incorrectly renamed one of the references to the inputInteger variable on line 6 to InputInteger, which adds a NameError (an instance of a runtime error in Python).
+    Replaced the assignment operator (=) in line 8 with an equality operator (==) to introduce another NameError (runtime error).
     </explanation>
 </root>

@@ -1,6 +1,6 @@
 <root>
     <thinking>
-    There's plenty of logical errors that could be made here. Novices often get confused with what code is executed after an if statement, so we can remove the catch-all else to introduce a logical error. To make some of the output logically incorrect, we can add an incorrect translation too.
+    There’s plenty of logical errors that could be made here. Novices often get confused with what code is executed after an if statement, so the catch-all else could be removed to introduce a logical error. To make some of the output logically incorrect, some of the translations could be changed to be incorrect too.
     </thinking>
     
     <incorrect-program>

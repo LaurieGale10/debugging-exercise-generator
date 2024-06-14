@@ -1,10 +1,10 @@
 <root>
     <thinking>
-    There's not much scope to add a logical error in such a small program, but printing an incorrect output may cause test cases to fail, which constitutes a logical error. I could change what's outputted in the print function.
+    There’s not much scope to add a logical error in such a small program, but printing an incorrect output may cause test cases to fail, which constitutes a logical error. Therefore the output of the print statement could be changed.
     </thinking>
     
     <incorrect-program>
-    print("hi lovely world")
+    print(“greetings land”)
     </incorrect-program>
     
     <error-location>
@@ -12,6 +12,6 @@
     </error-location>
     
     <explanation>
-    I changed the print statement's parameter to be "hi lovely world" instead of "Hello world". As a result, the program does not output what is specified and hence introduces a logical error.
+    Changed the print statement’s parameter to be “greetings land” instead of “Hello world”. As a result, the program does not output what is specified and hence introduces a logical error.
     </explanation>
 </root>

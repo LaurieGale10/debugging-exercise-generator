@@ -1,7 +1,7 @@
 <root>
     <thinking>
-    Novices often get assignment (=) and equality (==) operators confused, so I could introduce a runtime by replacing an assignment with a comparison operator.
-    Novices also forget to always use quotes, so I could remove the quotes from the Budapest in the if statement condition which will introduce a NameError in Python (a type of runtime error).
+    Novices often get assignment (=) and equality (==) operators confused, a runtime could be added by replacing an assignment with a comparison operator.
+    Novices also sometimes forget to use quotes where required, these could be removed from the Budapest in the if statement condition which will introduce a NameError in Python (a type of runtime error).
     </thinking>
     
     <incorrect-program>
@@ -24,6 +24,6 @@
     
     <explanation>
     Replaced the assignment operator (=) with an equality operator (==).
-    Removed the quotes surrounding "Budapest" in the if statement condition, introducing a NameError in Python.
+    Removed the quotes surrounding “Budapest” in the if statement condition, introducing a NameError in Python.
     </explanation>
 </root>
