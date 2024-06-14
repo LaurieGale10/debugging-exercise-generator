@@ -1,3 +1,0 @@
-Description taken from https://www.csnewbs.com/python-section-6-practice-tasks.
-
-Using for loops, create a program to output this nursery rhyme: "1, 2, 3, 4, 5, Once I caught a fish alive, 6, 7, 8, 9, 10 then I let it go again". Each part of the rhyme should be outputted on separate lines.

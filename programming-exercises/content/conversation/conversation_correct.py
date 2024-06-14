@@ -1,6 +1,0 @@
-print('Hello Steve!')
-print('Hello there Wendy!')
-print('How are you today Steve?')
-print('Not bad thanks, just bought some tea!')
-print('Oh I love a good cup of tea.')
-print('See you later.')

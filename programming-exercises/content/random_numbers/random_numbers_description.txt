@@ -1,5 +1,0 @@
-Description adapted from https://www.csnewbs.com/python-section-5-practice-tasks.
-
-Write a program that asks the user to input 4 different numbers.
-
-Put the four variables in a list and randomly print one of the elements to the screen.

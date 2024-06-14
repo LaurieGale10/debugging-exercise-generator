@@ -1,1 +1,0 @@
-This program should display the first 12 multiples of the number 6 using a while loop, from 1x6 up to 12x6.

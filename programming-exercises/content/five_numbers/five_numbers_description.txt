@@ -1,3 +1,0 @@
-Description adapted from https://www.csnewbs.com/python-section-8-practice-tasks.
-
-Write a program that creates a list containing the numbers 1, 2, 3, 4 and 5. Print the list, then remove the numbers 1 and 3, then print the list again.

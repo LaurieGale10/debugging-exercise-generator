@@ -1,3 +1,0 @@
-This program inputs the user's first name, surname, and the year they were born. It then prints a sentence to the screen with their full name and how old they will be at the end of the year.
-
-If a user's first name is Jo, their last name is Bloggs, and they were born in 2008, the program should print: "Your name is Jo Bloggs and at the end of this year you will be 15".

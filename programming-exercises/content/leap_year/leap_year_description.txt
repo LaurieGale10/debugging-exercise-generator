@@ -1,6 +1,0 @@
-Description adapted from https://snakify.org/en/lessons/if_then_else_conditions/problems/.
-
-Write a program that inputs a year number and checks if it's a leap year. If it is, print LEAP, otherwise print COMMON.
-- A year is a leap year if its number is exactly divisible by 4 and is not exactly divisible by 100.
-- A year is always a leap year if its number is exactly divisible by 400.
-Note that the words LEAP and COMMON should be printed all caps.

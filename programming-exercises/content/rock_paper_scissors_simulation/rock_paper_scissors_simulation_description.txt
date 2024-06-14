@@ -1,4 +1,0 @@
-This program simulates a game of rock, paper, scissors between two players. This is done using the following steps:
-    -Randomly generate a choice for each player using the random.choice() function, which selects a random item from a given list.
-    -Work out which player won the game or if it was a draw.
-    -Print the winner to the screen. If the match is a draw, then "The winner is Neither" should be printed.

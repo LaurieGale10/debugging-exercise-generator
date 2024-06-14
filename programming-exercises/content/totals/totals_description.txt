@@ -1,1 +1,0 @@
-Write a program that inputs two numbers from the user. Multiply the two numbers together and save it into a variable called total. If the total is over 9000, then print "It's over 9,000!!!", otherwise print "Unfortunately the number is not over 9000."

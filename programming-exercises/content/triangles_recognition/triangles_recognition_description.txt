@@ -1,7 +1,0 @@
-Description taken from (https://cgi.csc.liv.ac.uk/~frans/CPD/PythonCPD/PythonExampleProblems/Selection/Triangles/triangles2013-3-30.pdf), solution adapted from (https://cgi.csc.liv.ac.uk/~frans/CPD/PythonCPD/PythonExampleProblems/Selection/Triangles/triangles2013-3-30.pdf).
-
-Produce a Python program which, given three sides of a triangle,
-determines whether the triangle is:
-1. Equilateral (all sides the same length),
-2. Isosceles (two sides the same length) or
-3. Scalene (no sides the same length). 

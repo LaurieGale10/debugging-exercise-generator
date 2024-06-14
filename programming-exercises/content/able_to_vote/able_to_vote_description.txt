@@ -1,3 +1,0 @@
-Description adapted from https://www.csnewbs.com/ks3-python-5-selection.
-
-Write a program that checks if a user is old enough to vote. Do this by inputting the user's age, and if they are 18 or over, print "You are old enough to vote!" Otherwise print "You are not old enough to vote yet."

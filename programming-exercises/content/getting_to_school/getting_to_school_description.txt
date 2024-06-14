@@ -1,6 +1,0 @@
-Description adapted from https://www.csnewbs.com/python-section-2-practice-tasks.
-
-Create a program that asks the user how they get to school and how many minutes it takes them (using int).
-
-Then print "I can't believe it takes you <input1> minutes to get to school by <input2>!"
-For example, if the user inputs "car" and "45", the program should print "I can't believe it takes you 45 minutes to get to school by car!"

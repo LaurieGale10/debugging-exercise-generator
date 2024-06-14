@@ -1,5 +1,0 @@
-Description adapted from https://www.csnewbs.com/python-section-6-practice-tasks.
-
-Create a program using a while loop that keeps asking a user to enter an integer and adds it to a running total. Every time another integer is entered by the user, the program should output the current total.
-
-When the total goes over 100, the program stops and outputs: "OVERLOAD! You have gone over 100!"

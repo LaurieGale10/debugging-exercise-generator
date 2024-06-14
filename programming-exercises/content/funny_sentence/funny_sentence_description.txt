@@ -1,3 +1,0 @@
-Description adapted from https://www.csnewbs.com/ks3-python-2-variables.
-
-Write a program that uses three variables, an adjective (descriptive word), a number and an animal. Print a funny response using all variables. For example, "You won't believe it but 64 sneaky elephants just ran by me!"

@@ -1,7 +1,0 @@
-Description adapted from https://www.csnewbs.com/python-section-8-practice-tasks.
-
-Create a Python list of the following three ice cream flavours:
--Salted caramel
--Mint
--Cookie dough
-Then print this list to the screen.

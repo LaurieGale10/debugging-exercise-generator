@@ -1,5 +1,0 @@
-This program checks if someone should apply to be a computing teacher using the steps below:
-    -Input the user's age.
-    -Input the user's response to the question "Do you have a passion for teaching computing? Enter 'yes' or 'no': "
-    -If the user is 21 or over and does have a passion for teaching computing, the check should be a success. Otherwise, the check should be unsuccessful.
-Print the result of the check.

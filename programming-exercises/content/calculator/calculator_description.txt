@@ -1,5 +1,0 @@
-Description taken from https://www.csnewbs.com/python-section-7-practice-tasks.
-
-Create a calculator program that uses four different subroutines (add, subtract, multiply and divide).
-
-In the main program ask the user to make a choice of which operator to use and then to enter two numbers. Each operation must input 2 numbers from the user. Keep looping until the user types stop.

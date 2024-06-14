@@ -1,7 +1,0 @@
-Adapted from https://www.csnewbs.com/python-section-9-practice-tasks.
-
-It is the national hockey championships and you need to write the program for the TV channel showing the live games.
-
-Let the user enter the name of the first country that is playing. Then let the user enter the name of the second country.
-
-If a country's name is over 4 letters long or starts with a "Z", shorten the country's name to its first two letters. Otherwise, shorten the country's name to its first three letters. Print out the team names in uppercase.
