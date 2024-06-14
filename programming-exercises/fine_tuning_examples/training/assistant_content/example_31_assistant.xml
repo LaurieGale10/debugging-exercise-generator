@@ -20,6 +20,6 @@
     
     <explanation>
     Replaced the <= inequality with < on line 2, making the program logically incorrect for the edge case of total = 100.
-    Replaced the += with = on line 4, meaning the running total is no longer collected. Instead, the total variable only holds the user’s most recently inputted value.
+    Replaced the += with = on line 4, meaning the running total is no longer collected. Instead, the total variable only holds the user's most recently inputted value.
     </explanation>
 </root>

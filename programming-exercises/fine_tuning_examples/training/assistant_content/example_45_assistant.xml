@@ -1,7 +1,7 @@
 <root>
     <thinking>
     Two syntax errors can be added by indenting a couple of lines of the programs. Two consecutive lines can be indented to make the errors less subtle, so lines 7 and 8 are good to add.
-    It’s very difficult to add 7 runtime errors to this program without significantly altering its structure. However, an easy way to add 4 runtime errors is to misspell each reference to the numbers variable, as this is something novice programmers commonly do in their programs. A type error could also be added by assigning the numbers variable to a list rather than a string, especially as novice programmers commonly get different symbols mixed up. This amounts to 5 runtime errors.
+    It's very difficult to add 7 runtime errors to this program without significantly altering its structure. However, an easy way to add 4 runtime errors is to misspell each reference to the numbers variable, as this is something novice programmers commonly do in their programs. A type error could also be added by assigning the numbers variable to a list rather than a string, especially as novice programmers commonly get different symbols mixed up. This amounts to 5 runtime errors.
     </thinking>
     
     <incorrect-program>

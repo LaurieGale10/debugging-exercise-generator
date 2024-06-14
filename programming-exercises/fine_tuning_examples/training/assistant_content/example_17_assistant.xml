@@ -27,6 +27,6 @@
     Removed the assignment operator (=) from the assignment on line 3. 
     Unindented the return statement of the convert_to_uppercase() function
     Added a comma in the call to the convert convert_to_uppercase() function
-    Switched around the “ and + after the “Lower case” output in the final print statement, so that the print statement is not correctly formatted.
+    Switched around the " and + after the "Lower case" output in the final print statement, so that the print statement is not correctly formatted.
     </explanation>
 </root>

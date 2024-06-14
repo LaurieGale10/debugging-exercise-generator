@@ -1,6 +1,6 @@
 <root>
     <thinking>
-    Two syntax errors can easily be added to this program, so best to make them subtle. Since novice programmers often confuse the assignment operator (=) with the equality operator (==), one of the equality operators on line 5 can be replaced with an assignment, which adds a syntax error in Python. Second, the “else” keyword can be changed to “elif”, as novice programmers often confuse keywords of similar spellings.
+    Two syntax errors can easily be added to this program, so best to make them subtle. Since novice programmers often confuse the assignment operator (=) with the equality operator (==), one of the equality operators on line 5 can be replaced with an assignment, which adds a syntax error in Python. Second, the "else" keyword can be changed to "elif", as novice programmers often confuse keywords of similar spellings.
     </thinking>
     
     <incorrect-program>
@@ -20,7 +20,7 @@
     </error-location>
     
     <explanation>
-    Replaced the = after “year % 4” on line 5 with a ==.
-    Changed the “else” keyword to “elif” on line 7.
+    Replaced the = after "year % 4" on line 5 with a ==.
+    Changed the "else" keyword to "elif" on line 7.
     </explanation>
 </root>

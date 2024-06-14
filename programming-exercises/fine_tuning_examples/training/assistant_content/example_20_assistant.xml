@@ -21,7 +21,7 @@
     </error-location>
     
     <explanation>
-    Removed the “import math” statement, causing a runtime error when math.sqrt() is called in line 4.
+    Removed the "import math" statement, causing a runtime error when math.sqrt() is called in line 4.
     Adjusted the bracketing of line 2 such that the brackets are unbalanced.
     Changed the + operator in line 4 to the – operator, meaning the hypotenuse is not assigned the correct variable.
     </explanation>

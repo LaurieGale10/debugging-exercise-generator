@@ -1,6 +1,6 @@
 <root>
     <thinking>
-    Due to the program being over 30 lines long, there’s quite a lot of scope to add different errors. Two logical errors of similar nature can be added that they don’t “stand out”. Since novice programmers typically get similar-looking operators confused with each other, two of the equality operators (==), such as the ones used to check the user’s input against the secret colour/number, can be changed with a different symbol. The inequality operator (!=) seems appropriate as it causes a logical error without adding other types of errors.
+    Due to the program being over 30 lines long, there's quite a lot of scope to add different errors. Two logical errors of similar nature can be added that they don't "stand out". Since novice programmers typically get similar-looking operators confused with each other, two of the equality operators (==), such as the ones used to check the user's input against the secret colour/number, can be changed with a different symbol. The inequality operator (!=) seems appropriate as it causes a logical error without adding other types of errors.
     </thinking>
     
     <incorrect-program>
@@ -45,6 +45,6 @@
     </error-location>
     
     <explanation>
-    Replaced the equality operators (==) on lines 12 and 22 with inequality operators (==), meaning the program will output “Correct” whenever they guess incorrectly.
+    Replaced the equality operators (==) on lines 12 and 22 with inequality operators (==), meaning the program will output "Correct" whenever they guess incorrectly.
     </explanation>
 </root>    

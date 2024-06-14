@@ -1,6 +1,6 @@
 <root>
     <thinking>
-    I know novices often capitalise programming expressions that must be kept lower case, so I could capitalise the “print” function call to introduce a syntax error.
+    I know novices often capitalise programming expressions that must be kept lower case, so I could capitalise the "print" function call to introduce a syntax error.
     </thinking>
     
     <incorrect-program>
@@ -12,6 +12,6 @@
     </error-location>
     
     <explanation>
-    I capitalised the “print” function call to introduce an illegal expression, adding a single syntax error to the program.
+    I capitalised the "print" function call to introduce an illegal expression, adding a single syntax error to the program.
     </explanation>
 </root>

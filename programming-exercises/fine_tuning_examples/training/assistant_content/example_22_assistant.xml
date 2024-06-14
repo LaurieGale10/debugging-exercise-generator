@@ -1,7 +1,7 @@
 <root>
     <thinking>
     Two runtime errors can immediately be introduced by removing the float() casts necessary for maintaining correct typing of the program. The function call to math.sqrt() can also be easily manipulated by renaming it in some manner, introducing a runtime error.
-    Novices often get similar symbols and operators confused, so the **’s can be changed to *’s. This will add two logical errors without adding any other types of errors. The final output statement could also be changed to reference a logically incorrect variable.
+    Novices often get similar symbols and operators confused, so the **'s can be changed to *'s. This will add two logical errors without adding any other types of errors. The final output statement could also be changed to reference a logically incorrect variable.
     </thinking>
     
     <incorrect-program>

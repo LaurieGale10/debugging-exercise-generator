@@ -1,6 +1,6 @@
 <root>
     <thinking>
-    There are a couple of places where three very similar runtime errors can be added to the program. One of these is by changing the names of the three function calls to be misspelt. Introductory programming students often don’t correctly spell function names and symbols, so these errors are appropriate for this exercise, and hard to spot.
+    There are a couple of places where three very similar runtime errors can be added to the program. One of these is by changing the names of the three function calls to be misspelt. Introductory programming students often don't correctly spell function names and symbols, so these errors are appropriate for this exercise, and hard to spot.
     </thinking>
     
     <incorrect-program>

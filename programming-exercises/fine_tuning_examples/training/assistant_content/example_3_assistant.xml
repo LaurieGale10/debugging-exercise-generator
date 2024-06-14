@@ -1,6 +1,6 @@
 <root>
     <thinking>
-    It is very difficult to add 10 errors to a such a short program, so I’ll add 3, as this seems like the near-maximum number of errors that can be added without significantly changing the program.
+    It is very difficult to add 10 errors to a such a short program, so I'll add 3, as this seems like the near-maximum number of errors that can be added without significantly changing the program.
     Novice programmers usually mismatch brackets and symbols, especially when formatting print statements, so a few errors can be introduced by these means. The print statement can also be capitalised to introduce another syntax error.
     </thinking>
     

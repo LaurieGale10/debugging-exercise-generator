@@ -1,7 +1,7 @@
 <root>
     <thinking>
     Novice programmers often forget to add brackets to necessary statements, so this could be done to the print statement.
-    This is a difficult example to add 4 logical errors to, but I’ll add as many as I can without significantly changing the program. First, the incorrect function from math() could be called, but it must be one that inputs a float value so as not to add another error. The reference to the hypotenuse variable in the final print statement could be changed to simply print “hypotenuse”, as novices often struggle to form correct print statements. Finally, the references to the opposite and adjacent variables in the print statement could be switched to be logically incorrect.
+    This is a difficult example to add 4 logical errors to, but I'll add as many as I can without significantly changing the program. First, the incorrect function from math() could be called, but it must be one that inputs a float value so as not to add another error. The reference to the hypotenuse variable in the final print statement could be changed to simply print "hypotenuse", as novices often struggle to form correct print statements. Finally, the references to the opposite and adjacent variables in the print statement could be switched to be logically incorrect.
     </thinking>
     
     <incorrect-program>
@@ -25,7 +25,7 @@
     <explanation>
     The specified number of errors were not able to be added without significantly changing the program, so only 3 logical errors were added.
     Changed the function call from math.sqrt() to math.pow(), meaning the hypotenuse variable is assigned an incorrect value.
-    Removed the brackets from the print statement in line 7, as well as switching around the references to the opposite and adjacent variables so the print statements’ output is logically incorrect.
-    Outputting the string “hypotenuse” instead of the reference to the value of the hypotenuse variable.
+    Removed the brackets from the print statement in line 7, as well as switching around the references to the opposite and adjacent variables so the print statements' output is logically incorrect.
+    Outputting the string "hypotenuse" instead of the reference to the value of the hypotenuse variable.
     </explanation>
 </root>    

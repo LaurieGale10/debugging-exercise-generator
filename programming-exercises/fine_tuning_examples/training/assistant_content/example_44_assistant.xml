@@ -1,6 +1,6 @@
 <root>
     <thinking>
-    There are only a few statements that syntax errors can be added to, but the syntax errors can be spread out across the program to make them more difficult to solve. Firstly, novice programmers often use assignment with incorrect syntax, mixing terms incorrectly. This could be done to line 1. The two print statements’ syntax could be violated by mismatching the brackets they are encapsulated within. Finally, the two calls to the numbers.remove() function could be merged into one line, adding a syntax error.
+    There are only a few statements that syntax errors can be added to, but the syntax errors can be spread out across the program to make them more difficult to solve. Firstly, novice programmers often use assignment with incorrect syntax, mixing terms incorrectly. This could be done to line 1. The two print statements' syntax could be violated by mismatching the brackets they are encapsulated within. Finally, the two calls to the numbers.remove() function could be merged into one line, adding a syntax error.
     To add two logical errors, the calls to the remove() function could be illogically manipulated. This is particularly appropriate as functions are threshold concepts to introductory programmers.
     </thinking>
     

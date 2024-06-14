@@ -62,6 +62,6 @@
     Replaced the equality operators (==) with assignment operators (=) in lines 9 and 18, each introducing syntax errors.
     Removed the brackets from the print statements in line 33.
     Switched the right-hand side of the comparisons in the if statement conditions in lines 9 and 18. The code for when A is inputted is now executed when B is inputted, and vice versa.
-    Indented line 33 so it’s executed after each iteration of the while loop, rather than at the end.
+    Indented line 33 so it's executed after each iteration of the while loop, rather than at the end.
     </explanation>
 </root>    

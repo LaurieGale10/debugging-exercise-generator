@@ -1,8 +1,8 @@
 <root>
     <thinking>
     To add syntax errors that novices would often get, I could remove some quotes from a print statement, as well as add some syntactically invalid whitespace.
-    To add some runtime errors, I know novices get mixed up with the use of keywords, and “int” and “input” are very similar, so I could remove one of these to introduce a value error. I could also change the = in the initial assignment to be ==, as I know novices get = and == mixed up.
-    I could add a logical error removing the final else condition so that the final print statement in the program always gets printed. The programmer would then have to deduce that they’d need to add an else. I could also change the output to one of the statements in line 
+    To add some runtime errors, I know novices get mixed up with the use of keywords, and "int" and "input" are very similar, so I could remove one of these to introduce a value error. I could also change the = in the initial assignment to be ==, as I know novices get = and == mixed up.
+    I could add a logical error removing the final else condition so that the final print statement in the program always gets printed. The programmer would then have to deduce that they'd need to add an else. I could also change the output to one of the statements in line 
     </thinking>
     
     <incorrect-program>
@@ -33,7 +33,7 @@
     Removed the input statement in line 1, adding a ValueError. Also changed the = to a ==, adding a NameError.
     Removed the quotes from the print statements in line 5.
     Added syntactically invalid indentation in the body of the elif clause on line 9.
-    Slightly adjusted the output of line 11 so that is reads “You entered 3” instead of “You entered 4”
-    Removed the else clause and unindented the body of it, so that “That number is not valid” is always printed.
+    Slightly adjusted the output of line 11 so that is reads "You entered 3" instead of "You entered 4"
+    Removed the else clause and unindented the body of it, so that "That number is not valid" is always printed.
     </explanation>
 </root>

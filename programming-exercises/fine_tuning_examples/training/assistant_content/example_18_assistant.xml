@@ -1,6 +1,6 @@
 <root>
     <thinking>
-    There’s lots of places to add a syntax error, but because novices often get similar-looking keywords mixed up, the input keyword could be misspelt to include “int”.
+    There's lots of places to add a syntax error, but because novices often get similar-looking keywords mixed up, the input keyword could be misspelt to include "int".
     Novices are also not always consistent with referencing their variables, sometimes not spelling the variable reference exactly. As a result, the names of some of the variable references could be changed to add some runtime errors.
     To add logical errors, I could add some incorrect logic around the function call. Novices tend to struggle with the idea of calling a function,  so the call to the convert_to_uppercase() function could be replaced with a different function. Within the function there are also calls to built-in Python functions. One of these could be changed to something that edits the logic of the program. Finally, the print statement could be formatted differently by switching the two variable references. This would only introduce a logical error: the string would not print the correct output.
     </thinking>
@@ -28,9 +28,9 @@
     
     <explanation>
     Changed the spelling of the reference to the asciiValue variable, introducing a runtime error.
-    Changed the function call on line 4 to be str() instead of chr(), meaning the ASCII value is assigned to newCharacter rather than the ASCII value’s equivalent character.
-    Replaced the input() function call on line 7 with the misspelt “intput” function.
+    Changed the function call on line 4 to be str() instead of chr(), meaning the ASCII value is assigned to newCharacter rather than the ASCII value's equivalent character.
+    Replaced the input() function call on line 7 with the misspelt "intput" function.
     Replaced the convert_to_uppercase() function call in line 8 with a call to the str() function, introducing a logical error.
-    Switched the references to the newCharacter and lowercaseCharacter variables within the print statement so the program’s output is not correct. Also renamed lowercaseCharacter to lowerCaseCharacter which adds a runtime error.
+    Switched the references to the newCharacter and lowercaseCharacter variables within the print statement so the program's output is not correct. Also renamed lowercaseCharacter to lowerCaseCharacter which adds a runtime error.
     </explanation>
 </root>

@@ -1,6 +1,6 @@
 <root>
     <thinking>
-    This program has plenty of scope to add three logical errors. Although it seems difficult to add errors based on novice programming research, other subtle logical errors can be added nonetheless. For example, the random_list assignment in line 3 can have one of the terms removed, meaning the list is only of length 2 rather than 3. Line 7 can be completely removed, meaning the list won’t be sorted as specified in the exercise description. Finally, the variable printed on line 8 can be changed to a different variable, adding the final logical error.
+    This program has plenty of scope to add three logical errors. Although it seems difficult to add errors based on novice programming research, other subtle logical errors can be added nonetheless. For example, the random_list assignment in line 3 can have one of the terms removed, meaning the list is only of length 2 rather than 3. Line 7 can be completely removed, meaning the list won't be sorted as specified in the exercise description. Finally, the variable printed on line 8 can be changed to a different variable, adding the final logical error.
     To add a runtime error, line 1 can be removed, such that any call to the random library raises a NameError (instance of runtime error in Python).
     </thinking>
     

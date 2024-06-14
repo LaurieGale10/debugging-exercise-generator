@@ -1,6 +1,6 @@
 <root>
     <thinking>
-    Indentation is something that novices commonly get wrong, so I can remove some necessary indentation in the if statement. To add runtime errors, I can change the = in the first assignment to be a comparison (==). I can also change one of the references to the age variable. I’ll add a logical error by changing the comparison in the if statement, so that it incorrectly states anyone over 18 is allowed to vote (rather than 18 or over).
+    Indentation is something that novices commonly get wrong, so I can remove some necessary indentation in the if statement. To add runtime errors, I can change the = in the first assignment to be a comparison (==). I can also change one of the references to the age variable. I'll add a logical error by changing the comparison in the if statement, so that it incorrectly states anyone over 18 is allowed to vote (rather than 18 or over).
     </thinking>
     
     <incorrect-program>

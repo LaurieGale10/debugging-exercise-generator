@@ -1,6 +1,6 @@
 <root>
     <thinking>
-    There aren’t many places to add runtime errors in this program. One way of adding two identical runtime errors would be to change the spelling of the range() functions, since novices often do not spell function calls exactly correct. They also commonly misspell variable names, so one of the references to the variable “i” could be changed, also introducing a runtime error.
+    There aren't many places to add runtime errors in this program. One way of adding two identical runtime errors would be to change the spelling of the range() functions, since novices often do not spell function calls exactly correct. They also commonly misspell variable names, so one of the references to the variable "i" could be changed, also introducing a runtime error.
     Novices also typically struggle with indenting code correctly. In this case, the two print statements can be indented to be inside the while loop, which introduce a logical error without introducing a syntax or runtime error.
     </thinking>
     

@@ -24,7 +24,7 @@
     </error-location>
     
     <explanation>
-    Added logically incorrect error handling for inputs that are not lowercase letters; the “and” should instead be an “or”
+    Added logically incorrect error handling for inputs that are not lowercase letters; the "and" should instead be an "or"
     Incorrectly assigned the newAsciiValue variable to asciiValue + 32 instead of asciiValue – 32
     Returned the newAsciiValue variable instead of the newCharacter variable.
     </explanation>

@@ -1,8 +1,8 @@
 <root>
     <thinking>
-    It’s difficult to add eight syntax errors without significantly changing the structure of the program, but five seems like a sensible number to add. First, novice programmers often capitalise keywords that shouldn’t be, so the “import” keyword could be capitalised to add a syntax error. Additionally, all of the assignments could have their terms switched around, as this adds three syntax errors in a way that novice programmers usually program. Finally, since novices also often incorrectly indent their code, one of the lines could be indented.
+    It's difficult to add eight syntax errors without significantly changing the structure of the program, but five seems like a sensible number to add. First, novice programmers often capitalise keywords that shouldn't be, so the "import" keyword could be capitalised to add a syntax error. Additionally, all of the assignments could have their terms switched around, as this adds three syntax errors in a way that novice programmers usually program. Finally, since novices also often incorrectly indent their code, one of the lines could be indented.
     Runtime errors could easily be added. Novice programmers sometimes misspell function names, so the sqrt functions could be misspelt which causes runtime errors. Novices also get confused over the notion of int and str types in Python, so the int() cast on line 3 could be removed, causing a type error (a type of runtime error in Python).
-    Similar to other errors added, a logical error could be added by removing the “f” token inside the print statement in line 7. This will stop the variables from being printed in the program’s output, adding a logical error.
+    Similar to other errors added, a logical error could be added by removing the "f" token inside the print statement in line 7. This will stop the variables from being printed in the program's output, adding a logical error.
     </thinking>
     
     <incorrect-program>
@@ -26,11 +26,11 @@
     </error-location>
     
     <explanation>
-    It’s difficult to add so many errors to this program without significantly changing its structure, so only five syntax errors were added.
-    Capitalised the “import” keyword on line 1, introducing a syntax error.
+    It's difficult to add so many errors to this program without significantly changing its structure, so only five syntax errors were added.
+    Capitalised the "import" keyword on line 1, introducing a syntax error.
     Switched the terms in assignments on lines 3, 4, and 5, each adding a syntax error.
     Removed the int() cast on line 3, adding a type error (instance of a runtime error in Python)
     Changed the calls to the sqrt() function to read square_root on lines 4 and 5.
-    Removed the “f” from the print statement in line 7, meaning the variable values are no longer printed.
+    Removed the "f" from the print statement in line 7, meaning the variable values are no longer printed.
     </explanation>
 </root>
