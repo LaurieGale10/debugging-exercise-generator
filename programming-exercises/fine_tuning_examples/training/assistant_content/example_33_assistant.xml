@@ -1,0 +1,42 @@
+<root>
+    <thinking>
+    It’s just about doable to add 12 errors to this program, but only by adding multiple errors to each line.
+    Novice programmers often struggle with a couple of the syntactical parts of iteration in Python: Remembering to add the colon at the end, and correctly indenting subsequent lines. The colons on lines 1 and 4 could hence be replaced with a semi-colon (only slightly different), and the first line after each for statement (lines 2 and 5) could be indented twice, adding all four syntax errors to the program.
+    To add four runtime errors, since novice programmers often confuse string and int types when learning to program, the parameters of the range() functions could be changed to strings, adding type errors (an instance of a runtime error in Python). Then, the references to I in lines 2 and 5 could be misspelt, raising a NameError.
+    To add the final four logical errors, the observations that novice programmers often don’t repeat their loops a correct number of times can be harnessed. Instead of repeating the loops in the correct ranges, the values in the range() functions could be tweaked, as well as now being strings. Additionally, to play on the fact that novice programmers often don’t know what lines to include and exclude from iteration, lines 3 and 6 could be indented so they are each printed for each iteration, rather than after each iteration has completed.
+    </thinking>
+    
+    <incorrect-program>
+    for i in range("5");
+            print(I)
+        print("Once I caught a fish alive")
+    for i in range("10");
+            print(I)
+        print("Then I let it go again")
+    </incorrect-program>
+    
+    <error-location>
+    1
+    1
+    1
+    2
+    2
+    3
+    4
+    4
+    4
+    5
+    5
+    6
+    </error-location>
+    
+    <explanation>
+    Replaced the colons at the end lines of linew 1 and 4 with semi-colons.
+    Added quotes to the parameters of the range functions in lines 1 and 4, each adding a type error (instance of a runtime error in Python).
+    Changed the range parameter in line 1 from (1,6) to (5), adding a logical error.
+    Incorrectly indented lines 2 and 5, each adding syntax errors.
+    Misspelt the references to the i variable in lines 2 and 5, each adding runtime errors.
+    Changed the range parameter in line 1 from (6,11) to (10), adding a logical error.
+    Illogically indented lines 3 and 6, each adding logical errors.
+    </explanation>
+</root> 
