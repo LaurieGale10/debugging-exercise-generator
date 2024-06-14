@@ -1,6 +1,6 @@
 <root>
     <thinking>
-    Novice programmers often make lots of incorrect changes to small symbols, so a couple of these can be added in the clauses of the if statement to add some syntax errors. The same can be done to a print statement, perhaps by removing the brackets. Novices also get keywords confused sometimes, so the else clause could be changed to something different. Finally, some incorrect indentation can be added, as this is a construct that novices often don’t get syntactically correct.
+    Novice programmers often make lots of incorrect changes to small symbols, so a couple of these can be added in the clauses of the if statement to add some syntax errors. The same can be done to a print statement, perhaps by removing the brackets. Novices also get keywords confused sometimes, so the else clause could be changed to something different. Finally, some incorrect indentation can be added, as this is a construct that novices often don't get syntactically correct.
     A runtime error by capitalising one of the references to the number variable, as novices sometimes incorrectly capitalise variable references.
     </thinking>
     
@@ -33,7 +33,7 @@
     Changed the == to = in the if condition of line 6.
     Removed the brackets from the call to the print function in line 9.
     Removed the colon from the if statement clause and capitalised the reference to the number variable on line 10.
-    Erroneously renamed the “else” keyword to “elif”.
+    Erroneously renamed the "else" keyword to "elif".
     Removed the necessary indentation on line 13.
     </explanation>
 </root>

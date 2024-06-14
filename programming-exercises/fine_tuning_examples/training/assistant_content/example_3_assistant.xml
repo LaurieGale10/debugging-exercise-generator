@@ -1,11 +1,11 @@
 <root>
     <thinking>
-    It’s very difficult to add 10 errors to a such a short program, but three like the near-maximum number of errors that can be added without significantly changing the program.
+    It's very difficult to add 10 errors to a such a short program, but three like the near-maximum number of errors that can be added without significantly changing the program.
     Novice programmers usually mismatch brackets and symbols, especially when formatting print statements, so perhaps the quotation marks can be mismatched the brackets removed. Capitalising function calls is something novice programmers also do, although this would add a runtime error in this context. As a result, the print statement could be incorrectly indented to add another syntax error that represents a common novice programming mistake.
     </thinking>
     
     <incorrect-program>
-        print “Hello world’’
+        print "Hello world''
     </incorrect-program>
     
     <error-location>

@@ -1,8 +1,8 @@
 <root>
     <thinking>
     To add syntax errors that novice programmers often make, some quotes from a print statement can be removed. Some syntactically invalid whitespace could also be added.
-    To add some runtime errors, since novice programmers get mixed up with the use of keywords, and “int” and “input” are very similar, one of these keywords could be removed on line 1. Novice programmers also get confused between the assignment operator (=) and the equality operator (==), so these can be incorrectly interchanged in line 1.
-    A logical error could be added removing the final else condition so that the final print statement in the program always gets printed. The programmer would then have to deduce that they’d need to add an else. One of the output statements could also be slightly adjusted to add a logical error. 
+    To add some runtime errors, since novice programmers get mixed up with the use of keywords, and "int" and "input" are very similar, one of these keywords could be removed on line 1. Novice programmers also get confused between the assignment operator (=) and the equality operator (==), so these can be incorrectly interchanged in line 1.
+    A logical error could be added removing the final else condition so that the final print statement in the program always gets printed. The programmer would then have to deduce that they'd need to add an else. One of the output statements could also be slightly adjusted to add a logical error. 
     </thinking>
     
     <incorrect-program>
@@ -33,7 +33,7 @@
     Removed the input statement in line 1, adding a ValueError. Also changed the = to a ==, adding a NameError.
     Removed the quotes from the print statements in line 5.
     Added syntactically invalid indentation in the body of the elif clause on line 9.
-    Slightly adjusted the output of line 11 so that is reads “You entered 3” instead of “You entered 4”
-    Removed the else clause and unindented the body of it, so that “That number is not valid” is always printed.
+    Slightly adjusted the output of line 11 so that is reads "You entered 3" instead of "You entered 4"
+    Removed the else clause and unindented the body of it, so that "That number is not valid" is always printed.
     </explanation>
 </root>

@@ -4,7 +4,7 @@
     </thinking>
     
     <incorrect-program>
-    print{“Hello world”)
+    print{"Hello world")
     </incorrect-program>
     
     <error-location>

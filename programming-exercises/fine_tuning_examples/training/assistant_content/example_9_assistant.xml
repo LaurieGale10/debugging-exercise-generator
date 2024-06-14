@@ -2,12 +2,12 @@
     <thinking>
     Novices sometimes certain symbols confused, some mismatching quotes and brackets could be added to some of the statements to add syntax errors. Novice programmers also struggle with indentation so this could be added on lines that are currently indented correctly.
     
-    To add logical errors, the ** operator could be changed to *. This is a subtle change but means the inputInteger is multipled by 4 rather than raised to the power of 4. Since novices usually put quotes in incorrect places, the last print statement could be changed to print the string “inputInteger” rather than print its value.
+    To add logical errors, the ** operator could be changed to *. This is a subtle change but means the inputInteger is multipled by 4 rather than raised to the power of 4. Since novices usually put quotes in incorrect places, the last print statement could be changed to print the string "inputInteger" rather than print its value.
     </thinking>
     
     <incorrect-program>
     # Input expression
-    print('Input an integer”)
+    print('Input an integer")
     inputInteger = int(input(())
     
     # Make calculation (simple if)
@@ -28,10 +28,10 @@
     </error-location>
     
     <explanation>
-    Mismatched the brackets between “ and ‘ for the input statement on line 2.
+    Mismatched the brackets between " and ‘ for the input statement on line 2.
     Added an extra bracket to the input() call on line 3.
     Added some extra indentation after the if statement condition in line 7, adding a syntax error.
     Changed the ** in line 8 to *, which results in a logically incorrect value being assigned to line 8
-    Printed the literal string “Result is: inputInteger”, meaning the value of inputInteger is not printed at all, adding a logical error.
+    Printed the literal string "Result is: inputInteger", meaning the value of inputInteger is not printed at all, adding a logical error.
     </explanation>
 </root>
