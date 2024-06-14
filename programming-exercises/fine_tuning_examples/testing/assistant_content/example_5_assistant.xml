@@ -1,7 +1,7 @@
 <root>
     <thinking>
     Syntax errors can be added in lots of places in this program. Firstly, novice programmers have been found to miss colons at the end of selection and iteration in Python, so the colon at the end of line 8 can be removed. They also sometimes get the syntax of assignment statements incorrect, so the first two assignments can be manipulated to be syntactically incorrect.
-    To add runtime errors, since novice programmers have been found to misspell variable names (which leads to a runtime variable in Python), the two references to the days variable can be misspelled. The type of the value on line 10 can be changed to a string to introduce a type error, as novices also struggle to correctly convert between int and string types in Python.
+    To add runtime errors, since novice programmers have been found to misspell variable names (which leads to a runtime variable in Python), the two references to the days variable can be misspelt. The type of the value on line 10 can be changed to a string to introduce a type error, as novices also struggle to correctly convert between int and string types in Python.
     Novice programmers often get symbols confused, so the inequality in line 8 can be changed such that a logical error is added. Similarly, the * operator in line 12 can be changed to be logically incorrect. 
     </thinking>
     

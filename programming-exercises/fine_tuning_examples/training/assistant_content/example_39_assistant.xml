@@ -1,7 +1,7 @@
 <root>
     <thinking>
     There are plenty of places to add three errors in this program, so the most subtle errors can be added to make the task a bit more challenging.
-    A subtle syntax error could be introduced by incorrectly formatting one of the print statements, since novices often mismatch the symbols used in their print statements. They also struggle with the concept of ensuring function and variable names are identical, so one of the function names could be misspelled  to introduce a runtime error. Finally, one of the functions could simply not be called, meaning part of the program description is not fulfilled.
+    A subtle syntax error could be introduced by incorrectly formatting one of the print statements, since novices often mismatch the symbols used in their print statements. They also struggle with the concept of ensuring function and variable names are identical, so one of the function names could be misspelt  to introduce a runtime error. Finally, one of the functions could simply not be called, meaning part of the program description is not fulfilled.
     </thinking>
     
     <incorrect-program>

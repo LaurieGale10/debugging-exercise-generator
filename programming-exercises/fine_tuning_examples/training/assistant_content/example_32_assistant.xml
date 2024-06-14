@@ -22,8 +22,8 @@
     </error-location>
     
     <explanation>
-    Misspelled both calls to the range() function in lines 1 and 4, each adding a runtime error.
+    misspelt both calls to the range() function in lines 1 and 4, each adding a runtime error.
     Indented the print statements on lines 3 and 6, so they are each printed 5 times instead of once.
-    Misspelled the reference to the variable i on line 5, adding a NameError (type of runtime error in Python).
+    misspelt the reference to the variable i on line 5, adding a NameError (type of runtime error in Python).
     </explanation>
 </root>

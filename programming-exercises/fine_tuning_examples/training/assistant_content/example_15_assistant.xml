@@ -16,7 +16,8 @@
     
     <error-location>
     1
-    2 /removed lines 3 and 4
+    Removed line 3 of original program
+    Removed line 4 of original program
     7
     </error-location>
     

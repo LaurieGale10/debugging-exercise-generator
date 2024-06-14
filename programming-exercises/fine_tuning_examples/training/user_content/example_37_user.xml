@@ -1,7 +1,7 @@
 <description>
 Use a while true loop to let the user enter either A or B.
 
-A lets them guess a secret colour. If they get it wrong continue the loop but if they got it correct break the loop. B lets them guess a secret number. Continue if they guess it incorrectly or break if they get it correct. Pressing any other key causes means the while loop is repeated.
+A lets them guess a secret colour. If they get it wrong continue the loop but if they got it correct break the loop. B lets them guess a secret number. Continue if they guess it incorrectly or break if they get it correct. Pressing any other key causes the while loop to be repeated.
 </description>
     
 <correct-program>

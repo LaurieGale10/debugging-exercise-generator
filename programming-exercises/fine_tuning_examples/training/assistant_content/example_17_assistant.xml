@@ -6,7 +6,7 @@
     <incorrect-program>
     def convert_to_uppercase(lowercase):
         asciiValue = ord(lowercase)
-        newAsciiValue = 
+        newAsciiValue asciiValue - 32 
         newCharacter = chr(newAsciiValue)
     return newCharacter
     
@@ -24,7 +24,7 @@
     </error-location>
     
     <explanation>
-    Removed the right hand side of the assignment on line 3. 
+    Removed the assignment operator (=) from the assignment on line 3. 
     Unindented the return statement of the convert_to_uppercase() function
     Added a comma in the call to the convert convert_to_uppercase() function
     Switched around the “ and + after the “Lower case” output in the final print statement, so that the print statement is not correctly formatted.
