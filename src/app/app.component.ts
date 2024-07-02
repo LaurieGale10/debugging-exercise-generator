@@ -29,30 +29,30 @@ import { GenericDialogBoxComponent } from './generic-dialog-box/generic-dialog-b
 export class AppComponent {
   title = 'front-end';
   
-  testingUI: boolean = true;
+  testingUI: boolean = false;
   
   openai: OpenAI = new OpenAI({ apiKey: environment.openAiApiKey, dangerouslyAllowBrowser: true});
   systemPrompt: string = dedent(`
-  You are a resource developer creating debugging exercises for secondary school students learning to program in Python. Your task is to edit a program so that it contains a specified number of errors.
+  You are a teacher creating debugging exercises for secondary school students learning to program in Python. Your task is to add a number of errors to a program specified by the user.
 
-  You will be provided with the following information:
-  - A short, correct Python program in <correct-program> XML tags.
-  - A description of what the program should do in <description> XML tags.
-  - A number of syntax to add to the program in <syntax> XML tags.
-  - A number of runtime to add to the program in <runtime> XML tags.
-  - A number of logical to add to the program in <logical> XML tags.
-  
-  You must complete then following steps, each enclosed in <root> XML tags:
-  1) Think about where you could add the specified number of errors. Enclose this thinking with <thinking> XML tags.
-  2) Inject the specified number of syntax, runtime, and logical errors into the program. Enclose the incorrect program in <incorrect-program> XML tags.
-  3) Within the <error-location> tags, write the line number of each error that has been injected. Ensure the line numbers correspond to the lines containing errors within the program in the <incorrect-program> tags
-  4) Explain each error you have injected within <explanation> XML tags.`); //This doesn't change - needs to be formatted properly
+You will be provided with the following information:
+- A description of what the program is meant to do in <description> XML tags.
+- A correct Python program that fulfils the program description in <correct-program> XML tags.
+- A number of syntax errors to add to the program in <syntax> XML tags.
+- A number of runtime errors to add to the program in <runtime> XML tags.
+- A number of logical errors to add to the program in <logical> XML tags.
+
+You must complete the following steps, all enclosed in <root> XML tags:
+1) Consider where you could add the number of errors specified by the user. Enclose this thinking with <thinking> XML tags.
+2) Inject the specified number of syntax, runtime, and logical errors into the program and enclose it in <incorrect-program> XML tags.
+3) Within <error-location> XML tags, write the line number of each error that you have injected. Ensure the line numbers correctly correspond to the lines containing errors within the incorrect program.
+4) Explain each error you have injected within <explanation> XML tags.`); //This doesn't change - needs to be formatted properly
 
   sampleProgram: string = 'year_born = input("What year were you born in? ")\nage = 2023-int(year_born)\n\nfirst_name = input("What is your first name? ")\nlast_name = input("What is your last name? ")\nprint("Your name is",first_name,last_name,"and at the end of this year you will be", age)';
   sampleProgramDescription: string = 'This program inputs the user\'s first name, surname, and the year they were born. It then prints a sentence to the screen with their full name and how old they will be at the end of the year.\n\nIf a user\'s first name is Jo, their last name is Bloggs, and they were born in 2008, the program should print: "Your name is Jo Bloggs and at the end of this year you will be 15".';
   tooltipShowDelay = 1000;
 
-  exerciseGenerated: boolean = false;
+  exerciseGenerated: boolean = true;
   fullResponse: string | null = null;
   errorExplanations: Array<string> = [];
 
@@ -108,73 +108,6 @@ export class AppComponent {
       </explanation>
     </root>`);
 
-    let dummyResponseNoRoot: string = dedent(`
-      <thinking>
-      To add a syntax error, I could introduce a missing colon at the end of one of the lines.
-      </thinking>
-      
-      <incorrect-program>
-      year_born = input("What year were you born in? ")
-      age = 2023-int(year_born)
-  
-          first_name = input("What is your first name? ")
-      last_name = input("What is your last name? ")
-      print("Your name is",first_name,last_name,"and at the end of this year you will be", age)
-      </incorrect-program>
-      
-      <error-location>
-      3
-      </error-location>
-      
-      <explanation>
-      I have introduced a syntax error by omitting the colon at the end of line 3 after the input() function.
-      </explanation>`);
-
-    let dummyResponseUnindented: string = dedent(`
-    <root>
-    <thinking>
-    To add a syntax error, I could introduce a missing colon at the end of one of the lines.
-    </thinking>
-      
-    <incorrect-program>
-    year_born = input("What year were you born in? ")
-    age = 2023-int(year_born)
-  
-    first_name = input("What is your first name? ")
-    last_name = input("What is your last name? ")
-    print("Your name is",first_name,last_name,"and at the end of this year you will be", age)
-    </incorrect-program>
-    
-    <error-location>
-    3
-    </error-location>
-    
-    <explanation>
-    I have introduced a syntax error by omitting the colon at the end of line 3 after the input() function.
-    </explanation>
-    </root>`);
-
-    let dummyResponseWithoutExplanation: string = dedent(`
-    <root>
-    <thinking>
-    To add a syntax error, I could introduce a missing colon at the end of one of the lines.
-    </thinking>
-      
-    <incorrect-program>
-    year_born = input("What year were you born in? ")
-    age = 2023-int(year_born)
-  
-    first_name = input("What is your first name? ")
-    last_name = input("What is your last name? ")
-    print("Your name is",first_name,last_name,"and at the end of this year you will be", age)
-    </incorrect-program>
-    
-    <error-location>
-    3
-    </error-location>
-    
-    </root>`);
-
     return dummyResponseText;
   }
 
@@ -187,7 +120,8 @@ export class AppComponent {
           role: "user", content: userPrompt
         }
       ],
-      model: "gpt-3.5-turbo",
+      model: "ft:gpt-3.5-turbo-0125:personal:deg2:9dbzYrBD",
+      temperature: 0.8,
     });
     let fullResponse: string = completion.choices[0].message.content;
     return fullResponse;
@@ -215,6 +149,8 @@ export class AppComponent {
     this.loading = true;
     let fullResponse: string;
 
+    console.log(userPrompt)
+
     if (!this.testingUI) {
       fullResponse = await this.fetchReponse(userPrompt);
     }
@@ -231,6 +167,7 @@ export class AppComponent {
       //console.log(xmlDoc)
       let correctProgram = this.programDetailsForm.value.correctProgram;
       let incorrectProgram: string = dedent(xmlDoc.querySelector("incorrect-program").textContent); //This will also remove trailing whitespace from any possible indentation of first line - figure out a fix for this. However, it does currently maintain the rest of the indentation
+      console.log(xmlDoc.querySelector("incorrect-program").textContent)
       let explanation: string = xmlDoc.querySelector("explanation").textContent;
       let errorExplanations: Array<string> = explanation.split("\n\n");
 
